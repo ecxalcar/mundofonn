@@ -1,0 +1,132 @@
+<div class="container">
+
+	{% for block in section.blocks %}
+		{% case block.type %}
+			{% when 'announcement' %}
+				<div class="alert {{ block.settings.size_announcement }} {{ block.settings.color_announcement }} {{ block.settings.text_alignment }} ">
+					{{ block.settings.announcement_text }}
+				</div><!-- /alert -->
+		{% endcase %}
+	{% endfor %}
+
+</div><!-- /container -->
+
+{% schema %}
+{
+	"name": "Announcement Bar",
+	"tag": "section",
+	"class": "section-announcement-bar",
+	"settings": [
+		{
+			"type": "select",
+			"id": "heading_type",
+			"label": "Heading Type",
+			"options": [
+				{
+					"value": "h1",
+					"label": "Heading 1"
+				},
+				{
+					"value": "h2",
+					"label": "Heading 2"
+				}
+			],
+			"default": "h2"
+		}
+	],
+	"blocks": [
+		{
+			"name": "Announcement",
+			"type": "announcement",
+			"settings": [
+				{
+					"type": "text",
+					"id": "announcement_text",
+					"label": "Text",
+					"default": "Hola mundo!"
+				},
+				{
+					"type": "select",
+					"id": "text_alignment",
+					"label": "Text Alignment",
+					"options": [
+						{
+							"value": "text-start",
+							"label": "Left"
+						},
+						{
+							"value": "text-center",
+							"label": "Center"
+						},
+						{
+							"value": "text-end",
+							"label": "Right"
+						}
+					],
+					"default": "text-start"
+				},
+				{
+					"type": "select",
+					"id": "color_announcement",
+					"label": "Color Announcement",
+					"options": [
+						{
+							"value": "alert-primary",
+							"label": "Primary"
+						},
+						{
+							"value": "alert-secondary",
+							"label": "Secondary"
+						},
+						{
+							"value": "alert-danger",
+							"label": "Danger"
+						},
+						{
+							"value": "alert-success",
+							"label": "Success"
+						},
+						{
+							"value": "alert-warning",
+							"label": "Warning"
+						}
+					],
+					"default": "alert-primary"
+				},
+				{
+					"type": "select",
+					"id": "size_announcement",
+					"label": "Size",
+					"options": [
+						{
+							"value": "h1",
+							"label": "xxl"
+						},
+						{
+							"value": "h2",
+							"label": "xl"
+						},
+						{
+							"value": "h3",
+							"label": "lg"
+						},
+						{
+							"value": "h4",
+							"label": "md"
+						},
+						{
+							"value": "h5",
+							"label": "sm"
+						},
+						{
+							"value": "h6",
+							"label": "xs"
+						}
+					],
+					"default": "h6"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

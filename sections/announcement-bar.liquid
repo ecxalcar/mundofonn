@@ -1,31 +1,113 @@
-{% comment %} VARIABLES {% endcomment %}
-{% assign name = 'Fernando' %}
-<h2>
-  {{ name | append: 'Welcome :) ' }}
-</h2>
+{% comment %} FOR 
+{% assign subjects = 'Matemática,Historia,Música,Ciencias,Inglés,Lenguaje' | split: ',' %}
 
-{% comment %} CONDICIONAL IF {% endcomment %}
+{% for subject in subjects %}
+  {% if forloop.first %}
+    <h3>Tenemos {{ forloop.length }} materias.</h3>
+  {% endif %}
+  {{ forloop.index | append: '-' | append: subject }} <br>
+{% endfor %}
+{% endcomment %}
+
+<br>
+
+{% comment %}
+{% assign limit = 200 %}
+{% for i in (1..18) offset: 7 %}
+
+  {% assign mod = forloop.index | modulo: 2 %}
+  {% if mod == 1 %}
+    {{ i }} <br>
+  {% endif %}
+
+{% endfor %}
+
+{% for i in (30..limit) %}
+
+  {% assign mod = forloop.index | modulo: 2 %}
+  {% if i == 189 %}
+    {% break %}
+  {% else %}
+    {% if mod == 1 %}
+    {{ i }} <br>
+    {% endif %}
+  {% endif %}
+
+{% endfor %}
+{% endcomment %}
+
+<br>
+
+{% comment %}
+{% assign num_1 = 9 %}
+{% assign num_2 = 9 %}
+
+{% if num_1 > num_2 %}
+  <h3> 
+    El primer número: {{ num_1 }} es mayor. <br>
+    El segundo número: {{ num_2 }} es menor.
+  </h3>
+{% elsif num_2 > num_1 %}
+  <h3> 
+    El segundo número: {{ num_2 }} es mayor. <br>
+    El primer número: {{ num_1 }} es menor.
+  </h3>
+{% else %}
+  <h3>Los números son iguales</h3>
+{% endif %}
+{% endcomment %}
+
+<br>
+
+{% comment %}
+{% assign message = 'primero' %}
+{% case message %}
+  {% when 'primero' %}
+    <h3>{{'Bienvenidos a clases alumnos de 1ero. básico.'}}</h3>
+  {% when 'segundo' %}
+    <h3>{{'Bienvenidos a clases alumnos de 2do. básico.'}}</h3>
+  {% when 'tercero' %}
+    <h3>{{'Bienvenidos a clases alumnos de 3ro. básico.'}}</h3>
+  {% else %}
+    <h3>{{'Bienvenidos a clases alumnos.'}}</h3>
+{% endcase %}
+{% endcomment %}
+
+<br>
+
+
+{% comment %} VARIABLES
+{% assign name = 'Fernando' %}
+
+<h2>
+  {{ 'Welcome :) ' | append: name }}
+</h2>
+{% endcomment %}
+
+{% comment %} CONDICIONAL IF 
 {% assign age = 0 %}
 {% if age >= 18 %}
   {{ 'ES MAYOR DE EDAD' | downcase }}
 {% else %}
   {{ 'ES MENOR DE EDAD' | downcase }}
 {% endif %}
-
+{% endcomment %}
 <br>
 
-{%comment%} ITERADOR FOR {%endcomment%}
+{% comment %} ITERADOR FOR
 <h2>
 {% assign message = 'H,O,L,A,M,U,N,D,O' | downcase | split: ',' %}
 {% for letter in message %}
   {{ letter }} <br>
   {% endfor%}
 </h2>
+{% endcomment %}
 
 <br>
 
-{% comment %} ITERADOR FOR {% endcomment %}
+{% comment %} ITERADOR FOR
 {% assign ages = '12,42,36' | split: ',' %}
 {% for age in ages %}
   {{ age }} <br/>
 {% endfor %}
+{% endcomment %}
