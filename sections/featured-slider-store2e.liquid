@@ -1,0 +1,108 @@
+<p class="display-4 bg-dark rounded-pill mx-auto  d-inline-block py-3 px-5 text-white ">{{ section.settings.section_heading }}</p>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+    {% if section.settings.section_indicators and section.blocks.size == 0 %}
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+		</div>
+	{% elsif section.settings.section_indicators %}
+		<div class="carousel-indicators">
+			{% for block in section.blocks %}
+				{% if forloop.first %}
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.index0 }}" class="active" aria-current="true" aria-label="Slide 1"></button>
+				{% else %}
+					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.index0 }}" aria-label="Slide 2"></button>
+				{% endif %}
+			{% endfor %}
+		</div>
+	{% endif %}
+
+    <div class="carousel-inner">
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'slide' %}
+                    <div class="carousel-item {% if forloop.first %} active {% endif %} ">
+                        {{ block.settings.slide_image | img_url: 'master' | img_tag: 'alt text', 'd-block w-100' }}
+                        <div class="carousel-caption d-none d-md-block bg-dark">
+                            <h3 class="text-white">{{ block.settings.slide_heading }}</h3>
+                            {{ block.settings.slide_content }}
+                        </div><!--/.carousel-caption-->
+                    </div><!--/.carousel-item-->
+            {% endcase %}
+        {% else %}
+			{% assign limit = 2 %}
+			{% for i in (1..limit) %}
+				<div class="carousel-item {% if forloop.first %} active {% endif %} bg-warning">
+					{{ 'lifestyle-' | append: i | placeholder_svg_tag: 'd-block w-100' }}
+					<div class="carousel-caption d-none d-md-block bg-dark">
+						<h3 class="text-white">Slide {{ i }} </h3>
+						<p>Slide content 1</p>
+					</div><!--/.carousel-caption-->
+				</div><!--/.carousel-item-->
+			{% endfor %}
+        {% endfor %}
+    </div><!--/.carousel-inner-->
+
+    {% if section.settings.section_arrows and section.blocks.size == 0 or section.settings.section_arrows%}
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    {% endif %}
+</div>
+
+{% schema %}
+{
+    "name": "Featured Slider",
+    "tag": "section",
+    "class": "featured-slider-store2e",
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_heading",
+            "label": "Section Heading",
+            "default": "Slider Heading"
+        },
+        {
+            "type": "checkbox",
+            "id": "section_arrows",
+            "label": "Show Arrows?"
+        },
+        {
+            "type": "checkbox",
+            "id": "section_indicators",
+            "label": "Show Indicators?"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Slide",
+            "type": "slide",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "slide_image",
+                    "label": "Slide Image"
+                },
+                {
+                    "type": "text",
+                    "id": "slide_heading",
+                    "label": "Slide Heading",
+                    "default": "Slide 1"
+                },
+                {
+                    "type": "richtext",
+                    "id": "slide_content",
+                    "label": "Slide Content",
+                    "default": "<p>Slide description 1</p>"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
