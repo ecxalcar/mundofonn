@@ -1,11 +1,11 @@
-<p class="display-4 bg-dark rounded-pill mx-auto  d-inline-block py-3 px-5 text-white ">{{ section.settings.section_heading }}</p>
+<p class="display-6 bg-dark rounded-pill d-inline-block py-3 px-5 text-white">{{ section.settings.section_heading }}</p>
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 
     {% if section.settings.section_indicators and section.blocks.size == 0 %}
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-		</div>
+		</div><!-- /carousel-indicators -->
 	{% elsif section.settings.section_indicators %}
 		<div class="carousel-indicators">
 			{% for block in section.blocks %}
@@ -15,7 +15,7 @@
 					<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.index0 }}" aria-label="Slide 2"></button>
 				{% endif %}
 			{% endfor %}
-		</div>
+		</div><!-- /carousel-indicators -->
 	{% endif %}
 
     <div class="carousel-inner">
@@ -60,7 +60,7 @@
 {
     "name": "Featured Slider",
     "tag": "section",
-    "class": "featured-slider-store2e",
+    "class": "store2e-featured-slider",
     "settings": [
         {
             "type": "text",

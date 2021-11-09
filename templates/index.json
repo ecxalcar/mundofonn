@@ -1,8 +1,14 @@
 {
   "sections": {
-    "featured_slider_store2e": {
-      "type": "featured-slider-store2e"
+    "store2e_featured_slider": {
+      "type": "store2e-featured-slider"
+    },
+    "store2e_featured_collection": {
+      "type": "store2e-featured-collection"
     }
   },
-  "order": ["featured_slider_store2e"]
+  "order": [
+    "store2e_featured_slider",
+    "store2e_featured_collection"
+  ]
 }

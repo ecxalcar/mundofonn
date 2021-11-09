@@ -108,7 +108,7 @@
       }
     {% endstyle %}
 
-    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {% comment %}{{ 'base.css' | asset_url | stylesheet_tag }}{% endcomment %}
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
@@ -131,7 +131,7 @@
     </a>
 
     {% comment %}{% section 'announcement-bar' %}{% endcomment %}
-    {% section 'announcement-bar-store2e' %}
+    {% section 'store2e-announcement-bar' %}
     {% section 'header' %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
