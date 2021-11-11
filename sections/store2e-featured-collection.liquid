@@ -5,9 +5,41 @@
         object-fit: contain;
     }
     .swiper {
-    width: 600px;
+    width: 100%;
     height: 300px;
     }
+
+    /* .swiper {
+        width: 100%;
+        height: 100%;
+      } */
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      /* .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      } */
 </style>
 
 <div class="container my-5">
@@ -22,25 +54,11 @@
 
     </div><!-- /row -->
 
-    <!-- Slider main container -->
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        ...
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
     
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    
-        <!-- If we need scrollbar -->
-        <div class="swiper-scrollbar"></div>
+    <div class="glider">
+        {% for product in collections[section.settings.featured_collection].products %}
+            {% render 'store2e-product-card' product: product %}
+        {% endfor %}
     </div>
 </div><!-- /container -->
 
@@ -49,6 +67,21 @@
     "name": "Featured Collection",
     "tag": "section",
     "settings": [
+        {
+            "type": "select",
+            "id": "show_slider",
+            "label": "Collection View",
+            "options": [
+                {
+                    "value": "card",
+                    "label": "Cards"
+                },
+                {
+                    "value": "slider",
+                    "label": "Slider"
+                }
+            ]
+        },
         {
             "type": "collection",
             "id": "featured_collection",

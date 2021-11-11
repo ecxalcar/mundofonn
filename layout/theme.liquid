@@ -110,7 +110,9 @@
 
     {% comment %}{{ 'base.css' | asset_url | stylesheet_tag }}{% endcomment %}
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -174,28 +176,16 @@
     {%- endif -%}
     <script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 
     <script>
-      const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
+      new Glider(document.querySelector('.glider'), {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        draggable: true,
 
-    // If we need pagination
-    pagination: {
-        el: '.swiper-pagination',
-    },
-
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-
-    // And if we need scrollbar
-    
-    });
+        
+      });
     </script>
   </body>
 </html>
