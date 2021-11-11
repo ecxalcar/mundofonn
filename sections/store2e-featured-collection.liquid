@@ -1,21 +1,65 @@
-<div class="container my-5">
-    <p class="mt-5 display-6 bg-dark rounded-pill d-inline-block py-3 px-5 text-white">Collection Heading</p>
-    <div class="row">
+<style>
+    img {
+        min-height: 200px;
+        max-height: 200px;
+        object-fit: contain;
+    }
+    .swiper {
+    width: 600px;
+    height: 300px;
+    }
+</style>
 
-        {% for card in (1..2) %}
-            {% for card in (1..6) %}
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="card mb-5 mx-auto" style="width: 18rem;">
-                        {{ 'product-' | append: card | placeholder_svg_tag: 'card-img-top' }}
-                        <div class="card-body">
-                            <h5 class="card-title">150.00 QGT</h5>
-                            <a href="#0"><p class="card-text h4 mb-3">Mochila de Viaje</p></a>
-                            <a href="#" class="btn btn-warning">Ver detalles</a>
-                        </div><!-- /card-body -->
-                    </div><!-- /card -->
-                </div><!-- /col-12 -->
-            {% endfor %}
+<div class="container my-5">
+    <p class="mt-5 display-6 bg-dark rounded-pill d-inline-block py-3 px-5 text-white">{{ section.settings.collection_heading }}</p>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5">
+
+        {% for product in collections[section.settings.featured_collection].products %}
+            <div class="col">
+                {% render 'store2e-product-card' product: product %}
+            </div><!-- /col-12 -->
         {% endfor %}
 
     </div><!-- /row -->
+
+    <!-- Slider main container -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+    
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+    </div>
 </div><!-- /container -->
+
+{% schema %}
+{
+    "name": "Featured Collection",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "collection",
+            "id": "featured_collection",
+            "label": "Featured Collection"
+        },
+        {
+            "type": "text",
+            "id": "collection_heading",
+            "label": "Collection Heading",
+            "default": "My Collection Heading"
+        }
+    ]
+}
+{% endschema %}
