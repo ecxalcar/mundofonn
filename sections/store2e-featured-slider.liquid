@@ -1,4 +1,6 @@
-<p class="display-6 bg-dark rounded-pill d-inline-block py-3 px-5 text-white">{{ section.settings.section_heading }}</p>
+<div class="container">
+    <p class="display-6 bg-dark rounded-pill d-inline-block py-3 px-5 text-white">{{ section.settings.section_heading }}</p>
+</div>
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 
     {% if section.settings.section_indicators and section.blocks.size == 0 %}
@@ -31,6 +33,20 @@
                     </div><!--/.carousel-item-->
             {% endcase %}
         {% else %}
+            {% if request.design_mode %}
+            <!-- This will only render in the theme editor -->
+                {% assign limit = 2 %}
+                {% for i in (1..limit) %}
+                    <div class="carousel-item {% if forloop.first %} active {% endif %} bg-warning">
+                        {{ 'lifestyle-' | append: i | placeholder_svg_tag: 'd-block w-100' }}
+                        <div class="carousel-caption d-none d-md-block bg-dark">
+                            <h3 class="text-white">Slide {{ i }} </h3>
+                            <p>Slide content 1</p>
+                        </div><!--/.carousel-caption-->
+                    </div><!--/.carousel-item-->
+                {% endfor %}
+            {% endif %}
+
 			{% assign limit = 2 %}
 			{% for i in (1..limit) %}
 				<div class="carousel-item {% if forloop.first %} active {% endif %} bg-warning">
@@ -55,6 +71,9 @@
         </button>
     {% endif %}
 </div>
+{% comment %}
+https://shopify.dev/themes/architecture/sections/integrate-sections-with-the-theme-editor#detect-the-theme-editor
+{% endcomment %}
 
 {% schema %}
 {

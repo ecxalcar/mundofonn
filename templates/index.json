@@ -5,10 +5,14 @@
     },
     "store2e_featured_collection": {
       "type": "store2e-featured-collection"
+    },
+    "mundofonn_faqs": {
+      "type" : "mundofonn-faqs"
     }
   },
   "order": [
     "store2e_featured_slider",
-    "store2e_featured_collection"
+    "store2e_featured_collection",
+    "mundofonn_faqs"
   ]
 }

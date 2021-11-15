@@ -1,0 +1,86 @@
+<style>
+    .question img,
+    .question svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        padding: 0 !important;
+        margin: 0 !important;
+        min-width: auto;
+        min-height: auto;
+        max-width: initial;
+        max-height: initial;
+        object-fit: cover;
+    }
+
+    .question {
+        width: 100%;
+        padding-bottom: 100%;
+        position: relative;
+    }
+
+</style>
+<div class="container">
+    <p class="mt-5 display-6 bg-dark rounded-pill d-inline-block py-3 px-5 my-5 text-white">{{ section.settings.section_heading }}</p>
+
+    <div class="row row-cols-sm-2 row-cols-md-3">
+        {% for block in section.blocks %}
+            {% case block.type %}
+                {% when 'question' %}
+                <div class="col mb-4">
+
+                    {% unless block.settings.question_url == blank %}
+                        <a href="{{ block.settings.question_url }}">
+                    {% endunless %}
+
+                    <div class="question bg-light">
+                        {% if block.settings.question_img == blank %}
+                            {{ 'lifestyle-2' | placeholder_svg_tag }}
+                        {% else %}
+                            {{ block.settings.question_img | img_url: 'master' | img_tag: '','mb-5' }}
+                        {% endif %}
+                    </div><!-- /card -->
+
+                    {% unless block.settings.question_url == blank %}
+                        </a>
+                    {% endunless %}
+
+                </div><!-- /col -->
+            {% endcase %}
+        {% endfor %}
+
+    </div><!-- /row -->
+</div><!-- /container -->
+
+{% schema %}
+{
+    "name": "FAQs",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "section_heading",
+            "label": "Section Heading",
+            "default": "FAQs Header"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Question",
+            "type": "question",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "question_img",
+                    "label": "Image"
+                },
+                {
+                    "type": "url",
+                    "id": "question_url",
+                    "label": "Question URL"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
