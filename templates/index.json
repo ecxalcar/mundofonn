@@ -8,11 +8,15 @@
     },
     "mundofonn_faqs": {
       "type" : "mundofonn-faqs"
+    },
+    "mundofonn_testimonials" : {
+      "type": "mundofonn-testimonials"
     }
   },
   "order": [
     "store2e_featured_slider",
     "store2e_featured_collection",
-    "mundofonn_faqs"
+    "mundofonn_faqs",
+    "mundofonn_testimonials"
   ]
 }
