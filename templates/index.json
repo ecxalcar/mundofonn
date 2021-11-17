@@ -11,12 +11,16 @@
     },
     "mundofonn_testimonials" : {
       "type": "mundofonn-testimonials"
+    },
+    "mundofonn_social_media": {
+      "type": "mundofonn-social-media"
     }
   },
   "order": [
     "store2e_featured_slider",
     "store2e_featured_collection",
     "mundofonn_faqs",
-    "mundofonn_testimonials"
+    "mundofonn_testimonials",
+    "mundofonn_social_media"
   ]
 }

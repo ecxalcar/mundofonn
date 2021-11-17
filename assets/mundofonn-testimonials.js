@@ -9,12 +9,11 @@ setInterval(function() {
         dots: '.dots-test',
         duration: 0.90,
         itemWidth: 150,
-    
+
         arrows: {
             prev: '.glider-prev-testimonials',
             next: '.glider-next-testimonials'
         }
     });
 
-},10) 
-
+},10)

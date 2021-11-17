@@ -6,7 +6,8 @@
         position: relative;
     }
 
-    .testimonials-glider .glider-slide img {
+    .testimonials-glider .glider-slide img,
+    .testimonials-glider .glider-slide .profile>svg {
         width: 100%;
         height: 100%;
         min-height: 100%;
@@ -67,7 +68,7 @@
                 {% case block.type %}
                     {% when 'testimonial' %}
                         <div class="testimonial">
-                            <div class="profile">
+                            <div class="profile bg-light">
                                 {% unless block.settings.author_img == blank %}
                                     {{ block.settings.author_img | img_url: 'master' | img_tag: '', '' }}
                                 {% else %}
