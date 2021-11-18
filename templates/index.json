@@ -1,10 +1,19 @@
 {
   "sections": {
     "store2e_featured_slider": {
-      "type": "store2e-featured-slider"
+      "type": "store2e-featured-slider",
+      "settings": {
+        "section_heading": "SLIDER HEADING ;)",
+        "section_arrows": true,
+        "section_indicators": true
+      }
     },
     "store2e_featured_collection": {
-      "type": "store2e-featured-collection"
+      "type": "store2e-featured-collection",
+      "settings": {
+        "collection_heading": "COLLECTION HEADING",
+        "featured_collection": "all"
+      }
     },
     "mundofonn_faqs": {
       "type" : "mundofonn-faqs"

@@ -51,6 +51,7 @@
     cursor: default;
 }
 </style>
+
 <div class="container">
     <p class="mt-5 display-6 bg-dark rounded-pill d-inline-block py-3 px-5 text-white">{{ section.settings.section_heading }}</p>
     <div class="glider-contain">
@@ -62,7 +63,7 @@
             </div><!--/.button-slider-->
         {% endif %}
 
-        <div id="testimonials-slider" class="testimonials-glider" data-slides="{{ section.settings.slides_to_show }}">
+        <div id="testimonials-slider" class="testimonials-glider" data-slides="{{ section.settings.slides_to_show }}" data-sectionId="{{ section.id }}">
 
             {% for block in section.blocks %}
                 {% case block.type %}
