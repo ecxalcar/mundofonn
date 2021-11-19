@@ -3,7 +3,7 @@
     "store2e_featured_slider": {
       "type": "store2e-featured-slider",
       "settings": {
-        "section_heading": "SLIDER HEADING ;)",
+        "section_heading": "Slider Heading ;)",
         "section_arrows": true,
         "section_indicators": true
       }
@@ -11,15 +11,23 @@
     "store2e_featured_collection": {
       "type": "store2e-featured-collection",
       "settings": {
-        "collection_heading": "COLLECTION HEADING",
+        "collection_heading": "Collection Heading :)",
         "featured_collection": "all"
       }
     },
     "mundofonn_faqs": {
-      "type" : "mundofonn-faqs"
+      "type" : "mundofonn-faqs",
+      "settings": {
+        "section_heading": "FAQs Heading :)"
+      }
     },
     "mundofonn_testimonials" : {
-      "type": "mundofonn-testimonials"
+      "type": "mundofonn-testimonials",
+      "settings": {
+        "section_heading": "Testimonials Heading :)",
+        "section_arrows": true,
+        "section_indicators": true
+      }
     },
     "mundofonn_social_media": {
       "type": "mundofonn-social-media"

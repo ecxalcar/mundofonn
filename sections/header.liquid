@@ -17,7 +17,7 @@
 								{% for child_link in link.links %}
 									<li> 
 										<a class="dropdown-item {% if child_link.links.size > 0 %} dropdown-toggle {% endif %}" href="{{ child_link.url }}" {% if child_link.links.size > 0 %} data-bs-toggle="dropdown"{% endif %} > {{ child_link.title }} </a>
-										{% if child_link.links.size > 0  %}
+										{% if child_link.links.size > 0 %}
 											<ul class="submenu dropdown-menu">
 												{% for grandchild_link in child_link.links %}
 													<li><a class="dropdown-item" href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a></li>
