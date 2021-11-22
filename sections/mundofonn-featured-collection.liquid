@@ -41,14 +41,16 @@
 </style>
 
 <div class="container my-5">
-    <p class="mt-5 display-6 bg-dark rounded-pill d-inline-block py-3 px-5 text-white">{{ section.settings.collection_heading }}</p>
+    <div class="heading text-center">
+        <h3 class="mt-5 bg-dark rounded-pill d-inline-block py-2 px-5 text-white text-center">{{ section.settings.collection_heading }}</h3>
+    </div>
 
     {% if section.settings.collection_view == 'card' %}
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5">
             {% for product in collections[section.settings.featured_collection].products %}
                 <div class="col">
-                    {% render 'store2e-product-card' product: product %}
+                    {% render 'mundofonn-product-card' product: product %}
                 </div><!-- /col-12 -->
             {% endfor %}
         </div><!-- /row -->
@@ -62,7 +64,7 @@
             </div><!--/.button-slider-->
             <div class="glider">
                 {% for product in collections[section.settings.featured_collection].products %}
-                    {% render 'store2e-product-card' product: product %}
+                    {% render 'mundofonn-product-card' product: product %}
                 {% endfor %}
             </div><!--/.glider-->
 

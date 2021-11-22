@@ -57,6 +57,7 @@
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="{{ 'mundofonn-testimonials.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'mundofonn-slider-primary.js' | asset_url }}" defer="defer"></script>
 
   </head>
 
@@ -66,13 +67,13 @@
     </a>
 
     {% comment %}{% section 'announcement-bar' %}{% endcomment %}
-    {% section 'store2e-announcement-bar' %}
+    {% section 'mundofonn-announcement-bar' %}
     {% section 'header' %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    {% section 'footer' %}
+    <!-- {% section 'footer' %} -->
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -108,9 +109,6 @@
     {%- endif -%}
   
     <script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
-    
-    
-    
     <script src="{{ 'mundofonn-collection.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

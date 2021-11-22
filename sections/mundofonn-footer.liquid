@@ -1,0 +1,153 @@
+<style>
+	.img-wrapper {
+		position: relative;
+		width: 100%;
+		padding-bottom: 60%;
+	}
+
+	.img-wrapper svg,
+	.img-wrapper img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+		min-height: 100%;
+	}
+
+	.mundofonn-footer a {
+		color: white;
+		text-decoration: none;
+		margin-bottom: 10px;
+		display: block;
+	}
+
+	.mundofonn-footer a:hover {
+		text-decoration: underline;
+	}
+</style>
+
+<div class="container py-5">
+	<div class="row">
+		{% for block in section.blocks %}
+			<div class="col-6 col-md-4 col-lg-3">
+
+			{% if block.type == 'footer_menu' %}
+				<h5 class="text-warning">{{ block.settings.heading_menu }}</h5>
+				{% if block.settings.menu.links.size > 0 %}
+					<ul class="list-unstyled">
+						{% for link in block.settings.menu.links %}
+							<li><a href="{{ link.url }}" class="text-white">{{ link.title }}</a> </li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+
+			{% elsif block.type == 'text_block' %}
+				<h5 class="text-warning">{{ block.settings.block_heading }}</h5>
+				{{ block.settings.text_block }}
+
+			{% elsif block.type == 'footer_image' %}
+				<div class="img-wrapper bg-light">
+					{% if block.settings.footer_img == blank %}
+						{{ 'product-1' | placeholder_svg_tag }}
+					{% else %}
+						{{ block.settings.footer_img | img_url: 'master' | img_tag }}
+					{% endif %}
+				</div><!-- /img-wrapper -->
+			{% endif %}
+
+			</div><!-- /col -->
+
+		{% else %}
+
+		<div class="col-6 col-md-4 col-lg-3">
+			<h5 class="text-warning">Quick Links</h5>
+			<ul class="list-unstyled">
+				<li><a href="#0" class="text-white">Link</a> </li>
+				<li><a href="#0" class="text-white">Link</a> </li>
+				<li><a href="#0" class="text-white">Link</a> </li>
+			</ul>
+		</div><!-- /col -->
+		<div class="col-6 col-md-4 col-lg-3">
+			<h5 class="text-warning">Quick Links</h5>
+			<ul class="list-unstyled">
+				<li><a href="#0" class="text-white">Link</a> </li>
+				<li><a href="#0" class="text-white">Link</a> </li>
+				<li><a href="#0" class="text-white">Link</a> </li>
+			</ul>
+		</div><!-- /col -->
+		<div class="col-6 col-md-4 col-lg-3">
+			<h5 class="text-warning">Contact</h5>
+			<ul class="list-unstyled">
+				<li><a href="#0" class="text-white">+50245454545</a> </li>
+				<li><a href="#0" class="text-white">tienda@gmail.com</a> </li>
+			</ul>
+		</div><!-- /col -->
+		<div class="col-6 col-md-4 col-lg-3">
+			<div class="img-wrapper bg-light">
+					{{ 'product-1' | placeholder_svg_tag }}
+			</div><!-- /img-wrapper -->
+		</div><!-- /col -->
+
+		{% endfor %}
+
+	</div><!-- /row -->
+</div><!-- /container -->
+
+{% schema %}
+{
+	"name": "MundoFonn Footer",
+	"tag": "section",
+	"class": "mundofonn-footer bg-dark text-white",
+	"blocks": [
+		{
+			"name": "Text Block",
+			"type": "text_block",
+			"settings": [
+				{
+					"type": "text",
+					"id": "block_heading",
+					"label" : "Text Block Heading",
+					"default": "Block Heading"
+				},
+				{
+					"type": "textarea",
+					"id": "text_block",
+					"label": "Text Block",
+					"default": "<p>This is my example text for this text block... :)</p>"
+				}
+			]
+		},
+		{
+			"name": "Footer Image",
+			"type": "footer_image",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "footer_img",
+					"label": "Image"
+				}
+			]
+		},
+		{
+			"name":	"Footer Menu",
+			"type": "footer_menu",
+			"settings": [
+				{
+					"type": "text",
+					"id": "heading_menu",
+					"label" : "Heading Menu",
+					"default": "Menu Title"
+				},
+				{
+					"type": "link_list",
+					"id": "menu",
+					"label" : "Menu",
+					"default": "main-menu"
+				}
+			]
+		}
+	]
+}
+{% endschema %}
