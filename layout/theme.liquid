@@ -39,6 +39,7 @@
     %}
 
     {% comment %}{{ 'base.css' | asset_url | stylesheet_tag }}{% endcomment %}
+    {{ 'lightbox.css' | asset_url | stylesheet_tag }}
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
@@ -109,6 +110,7 @@
     {%- endif -%}
   
     <script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'lightbox-plus-jquery.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'mundofonn-collection.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
