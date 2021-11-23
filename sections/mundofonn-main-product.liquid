@@ -2,33 +2,69 @@
     <div class="row">
         <div class="col-md-7">
             <div class="featured-image-primary mb-4">
-                <a href="{{ 'img1.jpg' | asset_url }}" data-lightbox="roadtrip" data-title="My caption" ><img src="{{ 'img1.jpg' | asset_url }}" class="w-100" alt=""></a>
+                <a href="{{ product.featured_image | img_url: 'master' }}" data-lightbox="product" data-title="{{ product.title }}" ><img src="{{ product.featured_image | img_url: 'master' }}" class="w-100" alt=""></a>
             </div><!-- /featured-image-primary -->
             <div class="featured-image-secondary">
                 <div class="row">
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ 'img2.jpg' | asset_url }}" data-lightbox="roadtrip" data-title="My caption" ><img src="{{ 'img2.jpg' | asset_url }}" class="w-100" alt=""></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ 'img3.jpg' | asset_url }}" data-lightbox="roadtrip" data-title="My caption" ><img src="{{ 'img3.jpg' | asset_url }}" class="w-100" alt=""></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ 'img1.jpg' | asset_url }}" data-lightbox="roadtrip" data-title="My caption" ><img src="{{ 'img1.jpg' | asset_url }}" class="w-100" alt=""></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ 'img2.jpg' | asset_url }}" data-lightbox="roadtrip" data-title="My caption" ><img src="{{ 'img2.jpg' | asset_url }}" class="w-100" alt=""></a>
-                    </div>
-                    <div class="col-md-3 mb-4">
-                        <a href="{{ 'img3.jpg' | asset_url }}" data-lightbox="roadtrip" data-title="My caption" ><img src="{{ 'img3.jpg' | asset_url }}" class="w-100" alt=""></a>
-                    </div>
+                    {% for image in product.images offset: 1 %}
+                        <div class="col-12 col-sm-6 col-md-3 mb-4">
+                            <a href="{{ image | img_url: 'master' }}" data-lightbox="product" data-title="{{ product.title }}" ><img src="{{ image | img_url: 'master' }}" class="w-100" alt=""></a>
+                        </div>
+                    {% endfor %}
                 </div><!-- /row -->
             </div><!-- /featured-image-secondary -->
         </div><!-- /col -->
         <div class="col-md-5">
-            <div class="badge-pill badge-pill-warning">Apple</div>
-            <h2>Product Name</h2>
-            <span>Price: 5000</span>
-            <span>Offert: 2000</span>
+            <div class="badge badge-pill bg-warning">{{ product.vendor }}</div>
+            <h2>{{ product.title }}</h2>
+            {% if product.compare_at_price != blank %}
+                <p>Normal Price: <del class="text-muted">{{ product.compare_at_price | money_with_currency }}</del> </p>
+            {% endif %}
+            <p>{% if product.compare_at_price != blank %}Offer: {% else %} Price: {% endif %} <strong>{{ product.price | money_with_currency }}</strong> </p>
+            {% form 'product', product %}
+                <div class="quantity">
+                    <p>Variants:</p>
+                    <label>
+                        Color
+                        <select>
+                          {% for color_option in product.options_by_name['Color'].values %}
+                            <option>{{ color_option }}</option>
+                          {% endfor %}
+                        </select>
+                      </label>
+                    <p>Quantity:</p>
+                    <div class="input-group mb-3">
+                        <button type="button" class="btn btn-secondary form-control btn-decrease">-</button>
+                        <input type="text" name="quantity" value="1" class="form-control input-group-text quantity">
+                        <button type="button" class="btn btn-secondary form-control btn-increase">+</button>
+                        <br>
+                    </div>
+                    <div class="product-ctas mt-4">
+                        <input type="submit" class="btn btn-outline-warning w-100 mt-1 mb-1 text-dark" value="Add to Cart">
+                        {{ form | payment_button }}
+                    </div>
+                </div>
+            {% endform %}
+            <div class="description">
+                <p>{{ product.description }}</p>
+            </div>
         </div><!-- /col -->
     </div><!-- /row -->
 </div><!-- /container -->
+
+<script>
+    let btnDecrease = document.querySelector('.btn-decrease');
+    let btnIncrease = document.querySelector('.btn-increase');
+    let quantity = document.querySelector('.quantity');
+
+    btnDecrease.addEventListener('click', function() {
+        if (quantity.value > 1) {
+            quantity.value = parseInt(quantity.value) - 1;
+        }
+    });
+
+    btnIncrease.addEventListener('click', function() {
+        quantity.value = parseInt(quantity.value) + 1;
+    });
+
+</script>
