@@ -12,7 +12,7 @@
       "type": "mundofonn-featured-collection",
       "settings": {
         "collection_view": "slider",
-        "featured_collection": "all",
+        "featured_collection": "smartphones",
         "collection_heading": "Collection Heading :)"
       }
     },
