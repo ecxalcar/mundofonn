@@ -1,5 +1,8 @@
 {
   "sections": {
+    "mundofonn_main_cart_items": {
+      "type": "mundofonn-main-cart-items"
+    },
     "cart-items": {
       "type": "main-cart-items"
     },
@@ -27,6 +30,7 @@
     }
   },
   "order": [
+    "mundofonn_main_cart_items",
     "cart-items",
     "cart-footer",
     "featured-products"
