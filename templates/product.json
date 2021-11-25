@@ -2,9 +2,13 @@
   "sections": {
     "mundofonn_main_product": {
       "type": "mundofonn-main-product"
+    },
+    "mundofonn_product_recommendations": {
+      "type": "mundofonn-product-recommendations"
     }
   },
   "order": [
-    "mundofonn_main_product"
+    "mundofonn_main_product",
+    "mundofonn_product_recommendations"
   ]
 }
