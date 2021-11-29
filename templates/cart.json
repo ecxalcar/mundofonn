@@ -2,9 +2,17 @@
   "sections": {
     "mundofonn_main_cart_items": {
       "type": "mundofonn-main-cart-items"
+    },
+    "cart_featured_collection": {
+      "type": "mundofonn-cart-featured-collection",
+      "settings": {
+        "featured_collection": "smartphones",
+        "collection_heading": "Related Products"
+      }
     }
   },
   "order": [
-    "mundofonn_main_cart_items"
+    "mundofonn_main_cart_items",
+    "cart_featured_collection"
   ]
 }
