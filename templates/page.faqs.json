@@ -1,0 +1,10 @@
+{
+    "sections": {
+        "main-faqs": {
+            "type": "mundofonn-page-faqs"
+        }
+    },
+    "order": [
+        "main-faqs"
+    ]
+}
