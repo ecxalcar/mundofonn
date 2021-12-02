@@ -1,10 +1,10 @@
 <div class="container">
     <div class="header-blog text-center mb-5">
-        <h2>BLOG TITLE</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dignissimos quasi possimus, cupiditate iusto deleniti. Quam, possimus voluptatibus. Dolores non quidem error aut amet debitis, praesentium quod voluptatem deleniti veritatis!</p>
+        {% assign titleBlog = section.settings.title_blog | default: blog.title %}
+        <h2>{{ titleBlog }}</h2>
+        <p>{{ section.settings.description_blog }}</p>
     </div>
     {% paginate blog.articles by 2 %}
-    
         <div class="row mt-3">
             {% for article in blog.articles %}
                 <div class="col-12">
@@ -34,7 +34,24 @@
         </div><!--/.row-->
 
         {% render 'mundofonn-pagination' paginate:paginate %}
-
     {% endpaginate %}
 
 </div><!--/.container-->
+
+{% schema %}
+{
+    "name": "Main Blog",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title_blog",
+            "label": "Title Blog"
+        },
+        {
+            "type": "textarea",
+            "id": "description_blog",
+            "label": "Description Blog"
+        }
+    ]
+}
+{% endschema %}
