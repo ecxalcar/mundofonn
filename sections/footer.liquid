@@ -33,31 +33,60 @@
 		{% for block in section.blocks %}
 			<div class="col-6 col-md-4 col-lg-3">
 
-			{% if block.type == 'footer_menu' %}
-				<h5 class="text-warning">{{ block.settings.heading_menu }}</h5>
-				{% if block.settings.menu.links.size > 0 %}
-					<ul class="list-unstyled">
-						{% for link in block.settings.menu.links %}
-							<li><a href="{{ link.url }}" class="text-white">{{ link.title }}</a> </li>
-						{% endfor %}
-					</ul>
-				{% endif %}
-
-			{% elsif block.type == 'text_block' %}
-				<h5 class="text-warning">{{ block.settings.block_heading }}</h5>
-				{{ block.settings.text_block }}
-
-			{% elsif block.type == 'footer_image' %}
-				<div class="img-wrapper bg-light">
-					{% if block.settings.footer_img == blank %}
-						{{ 'product-1' | placeholder_svg_tag }}
-					{% else %}
-						{{ block.settings.footer_img | img_url: 'master' | img_tag }}
+				{% if block.type == 'footer_menu' %}
+					<h5 class="text-warning">{{ block.settings.heading_menu }}</h5>
+					{% if block.settings.menu.links.size > 0 %}
+						<ul class="list-unstyled">
+							{% for link in block.settings.menu.links %}
+								<li><a href="{{ link.url }}" class="text-white">{{ link.title }}</a> </li>
+							{% endfor %}
+						</ul>
 					{% endif %}
-				</div>
-			{% endif %}
 
-			</div>
+				{% elsif block.type == 'text_block' %}
+					<h5 class="text-warning">{{ block.settings.block_heading }}</h5>
+					{{ block.settings.text_block }}
+
+				{% elsif block.type == 'footer_image' %}
+					<div class="img-wrapper bg-light">
+						{% if block.settings.footer_img == blank %}
+							{{ 'product-1' | placeholder_svg_tag }}
+						{% else %}
+							{{ block.settings.footer_img | img_url: 'master' | img_tag }}
+						{% endif %}
+					</div>
+				{% endif %}
+			</div><!--/.col-->
+
+		{% else %}
+			<div class="col-6 col-md-4 col-lg-3">
+				<h5 class="text-warning">Quick Links</h5>
+				<ul class="list-unstyled">
+					<li><a href="#0" class="text-white">Link</a> </li>
+					<li><a href="#0" class="text-white">Link</a> </li>
+					<li><a href="#0" class="text-white">Link</a> </li>
+				</ul>
+			</div><!-- /col -->
+			<div class="col-6 col-md-4 col-lg-3">
+				<h5 class="text-warning">Quick Links</h5>
+				<ul class="list-unstyled">
+					<li><a href="#0" class="text-white">Link</a> </li>
+					<li><a href="#0" class="text-white">Link</a> </li>
+					<li><a href="#0" class="text-white">Link</a> </li>
+				</ul>
+			</div><!-- /col -->
+			<div class="col-6 col-md-4 col-lg-3">
+				<h5 class="text-warning">Contact</h5>
+				<ul class="list-unstyled">
+					<li><a href="#0" class="text-white">+50245454545</a> </li>
+					<li><a href="#0" class="text-white">tienda@gmail.com</a> </li>
+				</ul>
+			</div><!-- /col -->
+			<div class="col-6 col-md-4 col-lg-3">
+				<div class="img-wrapper bg-light">
+						{{ 'product-1' | placeholder_svg_tag }}
+				</div><!-- /img-wrapper -->
+			</div><!-- /col -->
 		{% endfor %}
 
 	</div>

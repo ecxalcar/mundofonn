@@ -5,16 +5,10 @@
     },
     "mundofonn_product_recommendations": {
       "type": "mundofonn-product-recommendations"
-    },
-    "mundofonn_footer": {
-      "type": "mundofonn-footer",
-      "settings": {
-      }
     }
   },
   "order": [
     "mundofonn_main_product",
-    "mundofonn_product_recommendations",
-    "mundofonn_footer"
+    "mundofonn_product_recommendations"
   ]
 }

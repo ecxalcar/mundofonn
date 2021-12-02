@@ -36,11 +36,6 @@
       "settings": {
         "icons_alignment": "justify-content-center"
       }
-    },
-    "mundofonn_footer": {
-      "type": "mundofonn-footer",
-      "settings": {
-      }
     }
   },
   "order": [
@@ -48,7 +43,6 @@
     "mundofonn_featured_collection",
     "mundofonn_faqs",
     "mundofonn_testimonials",
-    "mundofonn_social_media",
-    "mundofonn_footer"
+    "mundofonn_social_media"
   ]
 }

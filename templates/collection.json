@@ -1,14 +1,14 @@
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner"
+    "hero": {
+      "type": "mundofonn-collection-hero"
     },
-    "product-grid": {
-      "type": "main-collection-product-grid"
+    "main_collection": {
+      "type": "mundofonn-main-collection"
     }
   },
   "order": [
-    "banner",
-    "product-grid"
+    "hero",
+    "main_collection"
   ]
 }

@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="hero text-center">
+        {% for block in section.blocks %}
+            {% if block.type == 'collection_title' %}
+                {% assign title = block.settings.collection_title | default: collection.title %}
+                <h2>{{ title }}</h2>
+            {% elsif block.type == 'collection_description' %}
+                {% assign description = block.settings.collection_description | default: collection.description %}
+                <p>{{ description }}</p>
+            {% elsif block.type == 'separator' %}
+                <hr>
+            {% elsif block.type == 'collection_leading_Text' %}
+                <cite>{{ block.settings.leading_text }}</cite>
+            {% endif %}
+        {% else %}
+            <h2>Collection Title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus labore expedita provident iure culpa. Veritatis beatae corrupti sunt officia ipsum iure harum temporibus illum, libero natus, ex dolorum enim molestias.</p>
+            <hr>
+            <cite>Leading Text</cite>
+        {% endfor %}
+    </div><!--/.hero-->
+</div><!--/.container-->
+
+{% schema %}
+{
+    "name": "Collection Hero",
+    "tag": "section",
+    "blocks": [
+        {
+            "name": "Collection Title",
+            "type": "collection_title",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "collection_title",
+                    "label": "Title"
+                }
+            ],
+            "limit": 1
+        },
+        {
+            "name": "Collection Description",
+            "type": "collection_description",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "collection_description",
+                    "label": "Description"
+                }
+            ],
+            "limit": 1
+        },
+        {
+            "name": "Separator",
+            "type": "separator",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "separator",
+                    "label": "Add Separator?",
+                    "default": true
+                }
+            ],
+            "limit": 1
+        },
+        {
+            "name": "Collection Leading Text",
+            "type": "collection_leading_Text",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "leading_text",
+                    "label": "Leading Text"
+                }
+            ],
+            "limit": 1
+        }
+    ]
+}
+{% endschema %}

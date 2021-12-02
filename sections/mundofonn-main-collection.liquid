@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <div class="collection-filter">
+        <div class="sortby">
+            <div class="row">
+                <div class="col-auto">
+                    <div class="input-group">
+                        <select name="" id="inputGroupSelect01" class="form-select">
+                            {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+                            {% for option in collection.sort_options %}
+                                <option value="{{ option.value }}" {% if sort_by == option.value %} selected="selected" {% endif %}>{{ option.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div><!--/.input-group-->
+                </div><!--/.col-auto-->
+            </div><!--/.row-->
+        </div><!--/.sortby-->
+    </div><!--/.collection-filter-->
+
+    <div class="row">
+        {% paginate collection.products by 4 %}
+            {% for product in collection.products %}
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    {% render 'mundofonn-product-card' product: product %}
+                </div><!--/.col-->
+            {% endfor %}
+
+            {% render 'mundofonn-pagination' paginate:paginate %}
+        {% endpaginate %}
+    </div><!--/.row-->
+</div><!--/.container-->
+
+<script>
+    urlParams = {};
+
+    // Mantener parametros existentes
+    if(location.search.length) {
+        let params = location.search.substr(1).split('&');
+        for (let i = 0; i < params.length; i++) {
+            const keyValue = params[i].split('=');
+
+            if (keyValue.length) {
+                urlParams[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
+            }
+        }
+    }
+
+    // Actualizar parametro sort_by cuando hay un cambio en el elemento select
+    document.querySelector('.form-select').addEventListener('change', function(e) {
+        let value = e.target.value;
+        urlParams.sort_by = value;
+        location.search = new URLSearchParams(urlParams).toString();
+    });
+
+</script>
