@@ -1,10 +1,10 @@
 {
   "sections": {
-    "main": {
-      "type": "main-blog"
+    "main_blog": {
+      "type": "mundofonn-main-blog"
     }
   },
   "order": [
-    "main"
+    "main_blog"
   ]
 }
