@@ -5,7 +5,7 @@
         object-fit: contain;
     }
 </style>
-<div class="card mx-auto h-100 swiper-slide">
+<div class="card h-100 swiper-slide">
     {{ product.featured_media | img_url: 'master' | img_tag: 'card-img-top' }}
     <div class="card-body">
         <h5 class="card-title">{{ product.price | money_with_currency }}</h5>
