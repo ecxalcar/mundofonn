@@ -1,48 +1,47 @@
 <div class="container">
-    <div class="header-blog">
+    <div class="header-blog text-center mb-5">
         <h2>BLOG TITLE</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dignissimos quasi possimus, cupiditate iusto deleniti. Quam, possimus voluptatibus. Dolores non quidem error aut amet debitis, praesentium quod voluptatem deleniti veritatis!</p>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="post-wrapper d-flex">
-                {{ 'product-4' | placeholder_svg_tag: 'w-100' }}
-                <div class="description">
-                    <h4><strong>Title post</strong></h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et veniam, dolore exercitationem iusto, eligendi distinctio, amet est molestias omnis minima ullam explicabo. A corrupti tenetur modi. Temporibus mollitia totam cupiditate?</p>
-                    <a href="#0" class="btn btn-warning">Read Post</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="post-wrapper d-flex">
-                {{ 'product-4' | placeholder_svg_tag: 'w-100' }}
-                <div class="description">
-                    <h4><strong>Title post</strong></h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et veniam, dolore exercitationem iusto, eligendi distinctio, amet est molestias omnis minima ullam explicabo. A corrupti tenetur modi. Temporibus mollitia totam cupiditate?</p>
-                    <a href="#0" class="btn btn-warning">Read Post</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="post-wrapper d-flex">
-                {{ 'product-4' | placeholder_svg_tag: 'w-100' }}
-                <div class="description">
-                    <h4><strong>Title post</strong></h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et veniam, dolore exercitationem iusto, eligendi distinctio, amet est molestias omnis minima ullam explicabo. A corrupti tenetur modi. Temporibus mollitia totam cupiditate?</p>
-                    <a href="#0" class="btn btn-warning">Read Post</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="post-wrapper d-flex">
-                {{ 'product-4' | placeholder_svg_tag: 'w-100' }}
-                <div class="description">
-                    <h4><strong>Title post</strong></h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et veniam, dolore exercitationem iusto, eligendi distinctio, amet est molestias omnis minima ullam explicabo. A corrupti tenetur modi. Temporibus mollitia totam cupiditate?</p>
-                    <a href="#0" class="btn btn-warning">Read Post</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="row mt-3">
+        {% for article in blog.articles %}
+            <div class="col-12">
+                <div class="post-wrapper d-flex border-warning mb-5">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="img">
+                                {% if article.image %}
+                                    {{ article.image | img_url: 'master' | img_tag: '', 'w-100' }}
+                                {% else %}
+                                    {{ 'product-4' | placeholder_svg_tag: 'w-100' }}
+                                {% endif %}
+                            </div><!--/.img-->
+                        </div><!--/.col-->
+                        <div class="col-9">
+                            <div class="description">
+                                <h4><strong>{{ article.title }}</strong></h4>
+                                <cite>By {{ article.author }} | Published on {{ article.published_at | date:"%b %d, %Y" }}</cite>
+                                <p>{{ article.excerpt_or_content | strip_html | truncatewords: 20, '...' }}</p>
+                                <a href="{{ article.url }}" class="btn btn-warning">Read Post</a>
+                            </div><!--/.description-->
+                        </div><!--/.col-->
+                    </div><!--/.row-->
+                </div><!--/.post-wrapper-->
+            </div><!--/.col-->
+        {% endfor %}
+    </div><!--/.row-->
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div><!--/.container-->
