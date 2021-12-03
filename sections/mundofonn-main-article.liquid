@@ -1,0 +1,74 @@
+<style>
+    .post-content img,
+    .post-content svg {
+        max-height: 150px;
+        object-fit: cover;
+    }
+
+</style>
+<div class="container">
+    <div class="hero-article bg-light p-5 text-center mb-5">
+        <h2>Title post</h2>
+        <cite>By <a href="#0">Shakira</a> | Published on Feb 05, 2021 </cite>
+    </div><!-- /hero-article -->
+
+    <div class="row">
+        <div class="col-md-3">
+            <h5 class="mb-3">Sidebar Title</h5>
+            {{ 'product-4' | placeholder_svg_tag: 'bg-warning mb-3' }}
+        </div><!-- /col-3 -->
+
+        <div class="col-md-9">
+            <div class="post-content mb-5">
+                <h5 class="mb-3">Title Content</h5>
+                {{ 'product-3' | placeholder_svg_tag: 'w-100 bg-danger mb-3' }}
+                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni similique a tempore ex dicta quam sapiente laborum nisi repellat ipsa error hic ad, accusamus aperiam doloribus, voluptatum, beatae voluptate consectetur!</p>
+                <h5>Title Content</h5>
+                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni similique a tempore ex dicta quam sapiente laborum nisi repellat ipsa error hic ad, accusamus aperiam doloribus, voluptatum, beatae voluptate consectetur!</p>
+                {{ 'product-1' | placeholder_svg_tag: 'w-100 bg-light mb-3' }}
+                <h5>Title Content</h5>
+                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni similique a tempore ex dicta quam sapiente laborum nisi repellat ipsa error hic ad, accusamus aperiam doloribus, voluptatum, beatae voluptate consectetur!</p>
+                <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni similique a tempore ex dicta quam sapiente laborum nisi repellat ipsa error hic ad, accusamus aperiam doloribus, voluptatum, beatae voluptate consectetur!</p>
+                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni similique a tempore ex dicta quam sapiente laborum nisi repellat ipsa error hic ad, accusamus aperiam doloribus, voluptatum, beatae voluptate consectetur!</p>
+            </div><!-- /post-content -->
+
+            <div class="post-comments my-5">
+                <h5>3 Comments</h5>
+                <div class="card w-100 mb-3">
+                    <div class="card-header">By Ed Sheeran | Feb 06 2021</div>
+                    <div class="card-body">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae sed at perspiciatis ad saepe optio voluptates consequatur similique possimus ratione suscipit beatae aperiam voluptatum, dolores odio quas, vitae obcaecati fugit.</p>
+                    </div><!-- /card-body -->
+                </div><!-- /card -->
+                <div class="card w-100 mb-3">
+                    <div class="card-header">By Ed Sheeran | Feb 06 2021</div>
+                    <div class="card-body">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae sed at perspiciatis ad saepe optio voluptates consequatur similique possimus ratione suscipit beatae aperiam voluptatum, dolores odio quas, vitae obcaecati fugit.</p>
+                    </div><!-- /card-body -->
+                </div><!-- /card -->
+                <div class="card w-100 mb-3">
+                    <div class="card-header">By Ed Sheeran | Feb 06 2021</div>
+                    <div class="card-body">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae sed at perspiciatis ad saepe optio voluptates consequatur similique possimus ratione suscipit beatae aperiam voluptatum, dolores odio quas, vitae obcaecati fugit.</p>
+                    </div><!-- /card-body -->
+                </div><!-- /card -->
+            </div><!-- /post-comments -->
+
+            <div class="make-comment my-5">
+                <h5>Make a Comment</h5>
+                <form action="">
+                    <input type="text" name="" id="" class="form-control mb-2" placeholder="Name">
+                    <input type="email" name="" id="" class="form-control mb-2" placeholder="Email">
+                    <textarea name="" id="" cols="30" rows="10" class="form-control mb-2" placeholder="Message"></textarea>
+                    <input type="submit" value="Post Comment" class="btn btn-outline-warning text-dark">
+                </form><!-- /form -->
+            </div><!-- /make-comment -->
+        </div><!-- /col-9 -->
+
+        <div class="col-12">
+            <div class="container-btn text-center my-5">
+                <a href="#0" class="btn btn-warning btn-lg">Go back to the blog</a>
+            </div><!-- /container-btn -->
+        </div><!-- /col12 -->
+    </div><!-- /row -->
+</div><!-- /container -->

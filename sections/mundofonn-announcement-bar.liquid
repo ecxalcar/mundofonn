@@ -1,5 +1,4 @@
 <div class="container">
-
 	{% for block in section.blocks %}
 		{% case block.type %}
 			{% when 'announcement' %}
@@ -7,8 +6,11 @@
 					{{ block.settings.announcement_text }}
 				</div><!-- /alert -->
 		{% endcase %}
+	{% else %}
+		<div class="alert alert-warning text-center">
+			20% de descuento en todos los productos hasta el 31 de diciembre
+		</div><!-- /alert -->
 	{% endfor %}
-
 </div><!-- /container -->
 
 {% schema %}
