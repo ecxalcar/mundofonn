@@ -1,7 +1,8 @@
 {
+  "layout": "article-blog",
   "sections": {
     "mundofonn_main_article": {
-      "type": "mundofonn-main-article"
+      "type": "mundofonn-article-content"
     }
   },
   "order": [

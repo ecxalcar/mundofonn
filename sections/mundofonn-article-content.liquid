@@ -1,0 +1,144 @@
+<style>
+    .post-content img,
+    .post-content svg {
+        max-height: 150px;
+        object-fit: cover;
+    }
+
+    ul.share-buttons{
+        list-style: none;
+        padding: 0;
+        }
+
+        ul.share-buttons li{
+        display: inline;
+        }
+
+        ul.share-buttons .sr-only{
+        position: absolute;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        }
+</style>
+
+<!-- <div class="col-md-3">
+    <h5 class="mb-3">Sidebar Title</h5>
+    {{ 'product-4' | placeholder_svg_tag: 'bg-warning mb-3' }}
+</div> -->
+
+{% for block in section.blocks %}
+    {% if block.type == 'article_content' %}
+        <div class="post-content mb-5">
+            {{ article.content }}
+        </div><!-- /post-content -->
+    {% elsif block.type == 'share_buttons' %}
+        <h5>Share on:</h5>
+        <ul class="share-buttons" data-source="simplesharingbuttons.com">
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=&quote=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="images/social_flat_rounded_rects_svg/Facebook.svg" /></a></li>
+            <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="images/social_flat_rounded_rects_svg/Twitter.svg" /></a></li>
+            <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Share on LinkedIn" src="images/social_flat_rounded_rects_svg/LinkedIn.svg" /></a></li>
+            <li><a href="mailto:?subject=&body=:%20" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img alt="Send email" src="images/social_flat_rounded_rects_svg/Email.svg" /></a></li>
+        </ul>
+
+        <div class="share-buttons">
+            <a href="" class="badge bg-warning text-dark">Facebook</a>
+            <a href="" class="badge bg-warning text-dark">Twitter</a>
+            <a href="" class="badge bg-warning text-dark">LinkedIn</a>
+        </div>
+
+    {% elsif block.type == 'article_comments' %}
+        <div class="post-comments my-5">
+            <h5>{{ article.comments_count }} Comments</h5>
+
+            {% for comment in article.comments %}
+                <div class="card w-100 mb-3">
+                    <div class="card-header">By {{ comment.author }} | Feb 06 2021</div>
+                    <div class="card-body">
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae sed at perspiciatis ad saepe optio voluptates consequatur similique possimus ratione suscipit beatae aperiam voluptatum, dolores odio quas, vitae obcaecati fugit.</p>
+                    </div><!-- /card-body -->
+                </div><!-- /card -->
+            {% endfor %}
+        </div><!-- /post-comments -->
+
+    {% elsif block.type == 'comment_form' %}
+        <div class="make-comment my-5">
+            <h5>Make a Comment</h5>
+            <form action="">
+                <input type="text" name="" id="" class="form-control mb-2" placeholder="Name">
+                <input type="email" name="" id="" class="form-control mb-2" placeholder="Email">
+                <textarea name="" id="" cols="30" rows="10" class="form-control mb-2" placeholder="Message"></textarea>
+                <input type="submit" value="Post Comment" class="btn btn-outline-warning text-dark">
+            </form><!-- /form -->
+        </div><!-- /make-comment -->
+    
+    {% elsif block.type == 'back_blog' %}
+        <div class="container-btn text-center my-5">
+            <a href="#0" class="btn btn-warning btn-lg">Go back to the blog</a>
+        </div><!-- /container-btn -->
+    {% endif %}
+{% endfor %}
+
+{% schema %}
+{
+    "name": "Main Article",
+    "class": "col-12 col-md-9 main-article-content",
+    "blocks": [
+        {
+            "name": "Article Content",
+            "type": "article_content",
+            "limit": 1
+        },
+        {
+            "name": "Share Buttons",
+            "type": "share_buttons",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "share_facebook",
+                    "label": "Share on Facebook",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "share_twitter",
+                    "label": "Share on Twitter",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "share_linkedin",
+                    "label": "Share on LinkedIn",
+                    "default": true
+                },
+                {
+                    "type": "checkbox",
+                    "id": "share_email",
+                    "label": "Share on Email",
+                    "default": true
+                }
+            ],
+            "limit": 1
+        },
+        {
+            "name": "Comments",
+            "type": "article_comments",
+            "limit": 1
+        },
+        {
+            "name": "Comment Form",
+            "type": "comment_form",
+            "limit": 1
+        },
+        {
+            "name": "Back to Blog Button",
+            "type": "back_blog",
+            "limit": 1
+        }
+    ]
+}
+{% endschema %}

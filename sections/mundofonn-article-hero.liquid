@@ -1,0 +1,35 @@
+<style>
+	.hero-article {
+		padding-top: 150px;
+		padding-bottom: 150px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+		border-radius: 5px;
+		border-radius: 12px;
+		overflow: hidden;
+	}
+
+	.hero-article::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background: #00000096;
+	}
+
+	.hero-description {
+		position: relative;
+		z-index: 5;
+	}
+</style>
+
+<div class="hero-article bg-light text-center mb-5" style="background-image: url( {{  article.image | img_url: 'master' }} );">
+	<div class="hero-description">
+		<h2 class="text-white">{{ article.title }}</h2>
+		<cite class="text-white">By <a href="#0" class="text-white">{{ article.author }}</a> | Published on {{ article.published_at | date: '%b %d, %Y' }} </cite>
+	</div>
+</div><!-- /hero-article -->
