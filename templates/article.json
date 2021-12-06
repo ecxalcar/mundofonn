@@ -27,9 +27,29 @@
         "article_comment_form",
         "back_blog"
       ]
+    },
+    "mundofonn_sidebar_article": {
+      "type": "mundofonn-article-sidebar",
+      "blocks": {
+        "sidebar_heading": {
+          "type": "sidebar_heading"
+        },
+        "sidebar_img": {
+          "type": "sidebar_img"
+        },
+        "sidebar_textblock": {
+          "type": "sidebar_textblock"
+        }
+      },
+      "block_order": [
+        "sidebar_heading",
+        "sidebar_img",
+        "sidebar_textblock"
+      ]
     }
   },
   "order": [
-    "mundofonn_main_article"
+    "mundofonn_main_article",
+    "mundofonn_sidebar_article"
   ]
 }
