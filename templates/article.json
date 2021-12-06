@@ -2,7 +2,31 @@
   "layout": "article-blog",
   "sections": {
     "mundofonn_main_article": {
-      "type": "mundofonn-article-content"
+      "type": "mundofonn-article-content",
+      "blocks": {
+        "article_content": {
+          "type": "article_content"
+        },
+        "article_share_buttons": {
+          "type": "share_buttons"
+        },
+        "article_comments": {
+          "type": "article_comments"
+        },
+        "article_comment_form": {
+          "type": "comment_form"
+        },
+        "back_blog": {
+          "type": "back_blog"
+        }
+      },
+      "block_order": [
+        "article_content",
+        "article_share_buttons",
+        "article_comments",
+        "article_comment_form",
+        "back_blog"
+      ]
     }
   },
   "order": [
