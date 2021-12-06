@@ -4,6 +4,26 @@
         max-height: 150px;
         object-fit: cover;
     }
+
+    ul.share-buttons{
+        list-style: none;
+        padding: 0;
+        }
+
+        ul.share-buttons li{
+        display: inline;
+        }
+
+        ul.share-buttons .sr-only{
+        position: absolute;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+        padding: 0;
+        border: 0;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        }
 </style>
 
 <!-- <div class="col-md-3">
@@ -18,6 +38,13 @@
         </div><!-- /post-content -->
     {% elsif block.type == 'share_buttons' %}
         <h5>Share on:</h5>
+        <ul class="share-buttons" data-source="simplesharingbuttons.com">
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=&quote=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;"><img alt="Share on Facebook" src="images/social_flat_rounded_rects_svg/Facebook.svg" /></a></li>
+            <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><img alt="Tweet" src="images/social_flat_rounded_rects_svg/Twitter.svg" /></a></li>
+            <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"><img alt="Share on LinkedIn" src="images/social_flat_rounded_rects_svg/LinkedIn.svg" /></a></li>
+            <li><a href="mailto:?subject=&body=:%20" target="_blank" title="Send email" onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"><img alt="Send email" src="images/social_flat_rounded_rects_svg/Email.svg" /></a></li>
+        </ul>
+
         <div class="share-buttons">
             <a href="" class="badge bg-warning text-dark">Facebook</a>
             <a href="" class="badge bg-warning text-dark">Twitter</a>
