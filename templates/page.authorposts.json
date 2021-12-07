@@ -1,0 +1,10 @@
+{
+    "sections": {
+        "mundofonn_authorposts": {
+            "type": "mundofonn-authorposts"
+        }
+    },
+    "order": [
+        "mundofonn_authorposts"
+    ]
+}

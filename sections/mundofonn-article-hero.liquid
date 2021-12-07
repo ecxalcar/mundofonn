@@ -35,7 +35,7 @@
 				author/{{author.name}}
 			{% endif %}
 		{%- endcomment -%}
-		<cite class="text-white">By <a href="{{ article.user }}" class="text-white">{{ article.author }}</a> | Published on {{ article.published_at | date: '%b %d, %Y' }} </cite>
+		<cite class="text-white">By <a href="/author/{{ article.author }}" class="text-white">{{ article.author }}</a> | Published on {{ article.published_at | date: '%b %d, %Y' }} </cite>
 	</div>
 
 	<h1>{{ article.user.bio }}</h1>
