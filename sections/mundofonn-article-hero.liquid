@@ -30,6 +30,13 @@
 <div class="hero-article bg-light text-center mb-5" style="background-image: url( {{  article.image | img_url: 'master' }} );">
 	<div class="hero-description">
 		<h2 class="text-white">{{ article.title }}</h2>
-		<cite class="text-white">By <a href="#0" class="text-white">{{ article.author }}</a> | Published on {{ article.published_at | date: '%b %d, %Y' }} </cite>
+		{%- comment -%}
+			{% if article.tags contains fernando %}
+				author/{{author.name}}
+			{% endif %}
+		{%- endcomment -%}
+		<cite class="text-white">By <a href="{{ article.user }}" class="text-white">{{ article.author }}</a> | Published on {{ article.published_at | date: '%b %d, %Y' }} </cite>
 	</div>
+
+	<h1>{{ article.user.bio }}</h1>
 </div><!-- /hero-article -->

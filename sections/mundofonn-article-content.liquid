@@ -24,6 +24,15 @@
         width: 1px;
         overflow: hidden;
         }
+
+        .article-tags .badge a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .article-tags .badge a:hover {
+            text-decoration: underline;
+        }
 </style>
 
 {% for block in section.blocks %}
@@ -31,9 +40,11 @@
         <div class="post-content mb-5">
             {{ article.content }}
             <br>
-            {% for tag in article.tags %}
-                <div class="badge bg-secondary">#{{ tag }}</div>
-            {% endfor %}
+            <div class="article-tags mt-5">
+                {% for tag in article.tags %}
+                    <div class="badge bg-secondary text-white">#{{ tag | link_to_tag: tag }}</div>
+                {% endfor %}
+            </div>
         </div><!-- /post-content -->
 
     {% elsif block.type == 'share_buttons' %}
@@ -49,7 +60,7 @@
 
     {% if article.comments_enabled? %}
         <div class="post-comments my-5">
-            <h5>{{ article.comments_count }} Comments</h5>
+            <h5>{{ article.comments_count }} {{ article.comments_count | pluralize: 'Comment', 'Comments' }}</h5>
             {% paginate article.comments by 5 %}
                 {% for comment in article.comments %}
                     <div class="card w-100 mb-3">

@@ -1,0 +1,19 @@
+<div class="container">
+	<h2 class="text-center mb-5">Collections</h2>
+	<div class="row" data-masonry="{ percentPosition: true }">
+		{% for collection in collections %}
+			<div class="col-sm-6 col-lg-3 mb-4">
+				<a href="{{ collection.url }}">
+					<div class="card p-2 bg-light">
+						{% if collection.image %}
+							{{ collection.image | img_url: 'master' | img_tag }}
+						{% else %}
+							{{ collection.products.first.image | img_url: 'master' | img_tag: '','w-100' }}
+						{% endif %}
+						<h5 class="text-center mt-3">{{ collection.title }}</h5>
+					</div><!-- /card -->
+				</a><!-- /a -->
+			</div><!-- /col -->
+		{% endfor %}
+	</div><!-- /row -->
+</div><!-- /container -->
