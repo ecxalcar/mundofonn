@@ -34,11 +34,11 @@
 
 			{{ 'lightbox.css' | asset_url | stylesheet_tag }}
 			{{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
-			<script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
 			<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 			<script src="{{ 'mundofonn-testimonials.js' | asset_url }}" defer="defer"></script>
 			<script src="{{ 'mundofonn-slider-primary.js' | asset_url }}" defer="defer"></script>
 			<script src="{{ 'mundofonn-collection.js' | asset_url }}" defer="defer"></script>
+			<script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
 	</head>
 
 	<body>
@@ -66,7 +66,7 @@
 								{% else %}
 									<h6>This card hasn't expired yet.</h6>
 								{% endif %}
-
+ 
 								<div id="qr-code" class="d-flex justify-content-center mt-4"></div>
 									<script>
 										new QRCode(document.getElementById('qr-code'), {
