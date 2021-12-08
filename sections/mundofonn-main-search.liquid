@@ -1,72 +1,91 @@
 <style>
-    .content-search * {
-        color: #000;
-        text-decoration: none;
-    }
+	.content-search * {
+		color: #000;
+		text-decoration: none;
+	}
 
-    .image img {
-        max-height: 100px;
-        object-fit: contain;
-        margin-right: 20px;
-    }
+	.image {
+		margin-right: 20px;
+	}
+
+	.image img {
+		max-height: 100px;
+		object-fit: contain;
+	}
+
+	.result {
+		height: 100%;
+	}
+
+	strong {
+		background-color: yellow;
+		padding: 3px;
+	}
 </style>
 
 <section>
-    <div class="hero-search mb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 mx-auto text-center">
-                    <h2 class="mb-3">Search Results</h2>
-                    <form class="d-flex mb-5" action="{{ routes.search_url }}">
-                        <input class="form-control me-2" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Type something..." aria-label="Search">
-                        <button class="btn btn-warning" type="submit">Search</button>
-                    </form>
-                    <h5>{{ search.results_count }} results found for "{{ search.terms }}"</h5>
-                </div><!--/.col-->
-            </div><!--/.row-->
-        </div><!--/.container-->
-    </div><!--/.hero-search-->
+	<div class="hero-search mb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-6 mx-auto text-center">
+					<h2 class="mb-3">Search Results</h2>
+					<form class="d-flex mb-5" action="{{ routes.search_url }}">
+						<input class="form-control me-2" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Type something..." aria-label="Search">
+						<!-- <input type="hidden" name="type" value="product,article" /> -->
+						<button class="btn btn-warning" type="submit">Search</button>
+					</form>
+					<h5>{{ search.results_count }} results found for "{{ search.terms }}"</h5>
+				</div><!--/.col-->
+			</div><!--/.row-->
+		</div><!--/.container-->
+	</div><!--/.hero-search-->
 
-    <div class="content-search mt-5">
-        <div class="container">
-            <div class="row">
-                {% for item in search.results %}
-                    <div class="col-md-6 mb-4">
-                        <div class="result border border-warning rounded-3  p-3">
-                            <div class="row w-100 g-0">
-                                <div class="col-4">
-                                    <div class="image">
-                                        {% if item.object_type == 'article' %}
-                                            {{ item.image | img_url: 'master' | img_tag: '', 'w-100' }}
-                                        {% elsif item.object_type == 'product' %}
-                                            {{ item.featured_image | img_url: 'master' | img_tag: '', 'w-100' }}
-                                        {% else %}
-                                            {{ 'image' | placeholder_svg_tag }}
-                                        {% endif %}
-                                    </div>
-                                </div><!--/.col-->
-                                <div class="col-8">
-                                    <div class="content">
-                                        {% assign badge_color = 'bg-warning' %}
-                                        {% if item.object_type == 'article' %}
-                                            {% assign badge_color = 'bg-primary text-white' %}
-                                        {% elsif item.object_type == 'page' %}
-                                            {% assign badge_color = 'bg-secondary text-white' %}
-                                        {% endif %}
-                                        <a href="{{ item.url }}" class="d-block">
-                                            <h6 class="badge {{ badge_color }}">{{ item.object_type }}</h6>
-                                            <h3>{{ item.title }}</h3>
-                                            <p>{{ item.content | strip_html | truncate: 40, '...' }}</hp>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!--/.row-->
-                        </div><!--/.result-->
-                    </div><!--/.col-->
-                {% endfor %}
-
-            </div><!--/.row-->
-        </div><!--/.container-->
-    </div><!--/.content-search-->
-
+	<div class="content-search mt-5">
+		<div class="container">
+			<div class="row">
+				{% paginate search.results by 6 %}
+					{% for item in search.results %}
+						<div class="col-md-6 mb-4">
+							<div class="result border border-warning rounded-3  p-3">
+								<div class="row w-100 g-0">
+									<div class="col-4">
+										<div class="image">
+											<a href="{{ item.url }}" class="d-block">
+												{% if item.object_type == 'article' %}
+													{{ item.image | img_url: 'master' | img_tag: '', 'w-100' }}
+												{% elsif item.object_type == 'product' %}
+													{{ item.featured_image | img_url: 'master' | img_tag: '', 'w-100' }}
+												{% else %}
+													{{ 'image' | placeholder_svg_tag }}
+												{% endif %}
+											</a>
+										</div><!-- /image -->
+									</div><!--/.col-->
+									<div class="col-8">
+										<div class="content">
+											<a href="{{ item.url }}" class="d-block">
+												{% assign badge_color = 'bg-warning' %}
+												{% if item.object_type == 'article' %}
+													{% assign badge_color = 'bg-primary text-white' %}
+												{% elsif item.object_type == 'page' %}
+													{% assign badge_color = 'bg-secondary text-white' %}
+												{% endif %}
+												<h6 class="badge {{ badge_color }}">{{ item.object_type }}</h6>
+												<h3>{{ item.title | highlight: search.terms }}</h3>
+												<p class="mb-0">{{ item.content | strip_html | truncate: 40, '...' | highlight: search.terms }}</p>
+												{% if item.object_type == 'product' %}
+													<br><cite class="mt-3">{{ item.price | money_with_currency }}</cite>
+												{% endif %}
+											</a>
+										</div><!-- /content -->
+									</div><!-- /col -->
+								</div><!--/.row-->
+							</div><!--/.result-->
+						</div><!--/.col-->
+					{% endfor %}
+					{% render 'mundofonn-pagination', paginate: paginate %}
+				{% endpaginate %}
+			</div><!--/.row-->
+		</div><!--/.container-->
+	</div><!--/.content-search-->
 </section>
