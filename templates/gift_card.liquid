@@ -35,7 +35,10 @@
 			{{ 'lightbox.css' | asset_url | stylesheet_tag }}
 			{{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
 			<script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
-		<!-- {{ 'template-giftcard.css' | asset_url | stylesheet_tag }} -->
+			<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+			<script src="{{ 'mundofonn-testimonials.js' | asset_url }}" defer="defer"></script>
+			<script src="{{ 'mundofonn-slider-primary.js' | asset_url }}" defer="defer"></script>
+			<script src="{{ 'mundofonn-collection.js' | asset_url }}" defer="defer"></script>
 	</head>
 
 	<body>
@@ -44,9 +47,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-12 col-md-8 mx-auto">
-							<div class="card-content bg-light border border-2 rounded-3 p-5">
+							<div class="card-content bg-light border border-2 rounded-3 p-5 text-center">
 								<h2>Your Gift Card</h2>
-								{{ 'gift-card.png' | asset_url | img_tag }}
+								{{ 'gift-card.png' | asset_url | img_tag: '','w-100' }}
 								<h3>Hey {{ gift_card.customer.first_name }}!</h3>
 								{% if gift_card.enabled %}
 									<h6>This card is currently enable</h6>
@@ -54,11 +57,34 @@
 									<h6>This card is currently disable</h6>
 								{% endif %}
 
-								<h6><strong>This card expires on:</strong>{{ gift_card.expires_on | date: '%b %d %Y' }}</h6>
-								<h6><strong>Balance:</strong>{{ gift_card.balance }}</h6>
-								<h6><strong>Code:</strong>{{ gift_card.code }}</h6>
+								<h6><strong>This card expires on: </strong>{{ gift_card.expires_on | date: '%b %d %Y' }}</h6>
+								<h6><strong>Balance: </strong>{{ gift_card.balance | money_with_currency }}</h6>
+								<h6><strong>Code: </strong>{{ gift_card.code }}</h6>
 
-								
+								{% if gift_card.expired %}
+									<h6>This card already expired</h6>
+								{% else %}
+									<h6>This card hasn't expired yet.</h6>
+								{% endif %}
+
+								<div id="qr-code" class="d-flex justify-content-center mt-4"></div>
+									<script>
+										new QRCode(document.getElementById('qr-code'), {
+											text: '{{ gift_card.qr_identifier }}',
+											width: 220,
+											height: 220,
+										});
+									</script>
+
+									{% if gift_card.pass_url %}
+										<a href="{{ gift_card.pass_url }}">
+											<img 
+											id="apple-wallet-badge" 
+											src="{{ gift_card/add-to-apple-wallet.svg | shopify_asset_url }}" width="120"
+											height="40"
+											alt="Add to apple wallet"> 
+										</a>
+									{% endif %}
 
 							</div><!-- /card-content -->
 						</div><!-- /col -->
@@ -66,32 +92,7 @@
 				</div><!-- /container -->
 			</section>
 		</main>
+		<script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'lightbox-plus-jquery.min.js' | asset_url }}" defer="defer"></script>
 	</body>
 </html>
-
-<script>
-	var string = { qrImageAlt: {{ 'gift_cards.issued.qr_image_alt' | t | json }} };
-	document.addEventListener('DOMContentLoaded', function() {
-	 new QRCode( document.querySelector('.gift-card__qr-code'), {
-		text: document.querySelector('.gift-card__qr-code').dataset.identifier,
-		width: 120,
-		height: 120,
-		imageAltText: string.qrImageAlt
-		});
-	});
-
-	var template = document.getElementsByTagName("template")[0];
-	var clonedTemplate = template.content.cloneNode(true);
-
-	var isMessageDisplayed = false
-	document
-	.querySelector('.gift-card__copy-link')
-	.addEventListener('click', () => {
-		navigator.clipboard.writeText(document.querySelector('.gift-card__number').value).then(function () {
-			if (!isMessageDisplayed) {
-				document.querySelector('.gift-card__copy-success').appendChild(clonedTemplate);
-				isMessageDisplayed = true
-			}
-		});
-	});
-</script>
