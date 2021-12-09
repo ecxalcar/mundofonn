@@ -9,36 +9,24 @@
 		<meta name="theme-color" content="{{ settings.color_background }}">
 		<link rel="canonical" href="{{ canonical_url }}">
 		<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-		
 		{%- if settings.favicon != blank -%}
 		<link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
 		{%- endif -%}
-		
 		{%- unless settings.type_header_font.system? -%}
 		<link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
 		{%- endunless -%}
-		
 		{%- assign formatted_initial_value = gift_card.initial_value | money_without_trailing_zeros | strip_html -%}
-		
 		<title>{{ 'gift_cards.issued.title' | t: value: formatted_initial_value, shop: shop.name }}</title>
-
 		<meta name="description" content="{{ 'gift_cards.issued.subtext' | t }}">
-		
 		{{ content_for_header }}
-		
 		{%- liquid
 			assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
 			assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
 			assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-			%}
-
-			{{ 'lightbox.css' | asset_url | stylesheet_tag }}
-			{{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
-			<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-			<script src="{{ 'mundofonn-testimonials.js' | asset_url }}" defer="defer"></script>
-			<script src="{{ 'mundofonn-slider-primary.js' | asset_url }}" defer="defer"></script>
-			<script src="{{ 'mundofonn-collection.js' | asset_url }}" defer="defer"></script>
-			<script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
+		%}
+		{{ 'lightbox.css' | asset_url | stylesheet_tag }}
+		{{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+		
 	</head>
 
 	<body>
@@ -68,24 +56,23 @@
 								{% endif %}
 
 								<div id="qr-code" class="d-flex justify-content-center mt-4"></div>
-									<script>
-										new QRCode(document.getElementById('qr-code'), {
-											text: '{{ gift_card.qr_identifier }}',
-											width: 220,
-											height: 220,
-										});
-									</script>
+								<script>
+									new QRCode(document.getElementById('qr-code'), {
+										text: '{{ gift_card.qr_identifier }}',
+										width: 220,
+										height: 220,
+									});
+								</script>
 
-									{% if gift_card.pass_url %}
-										<a href="{{ gift_card.pass_url }}">
-											<img 
-											id="apple-wallet-badge" 
-											src="{{ gift_card/add-to-apple-wallet.svg | shopify_asset_url }}" width="120"
-											height="40"
-											alt="Add to apple wallet"> 
-										</a>
-									{% endif %}
-
+								{% if gift_card.pass_url %}
+									<a href="{{ gift_card.pass_url }}">
+										<img 
+										id="apple-wallet-badge" 
+										src="{{ gift_card/add-to-apple-wallet.svg | shopify_asset_url }}" width="120"
+										height="40"
+										alt="Add to apple wallet"> 
+									</a>
+								{% endif %}
 							</div><!-- /card-content -->
 						</div><!-- /col -->
 					</div><!-- /row -->
@@ -93,6 +80,10 @@
 			</section>
 		</main>
 		<script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
-		<script src="{{ 'lightbox-plus-jquery.min.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'lightbox-plus-jquery.min.js' | asset_url }}" defer="defer"></script><script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+		<script src="{{ 'mundofonn-testimonials.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'mundofonn-slider-primary.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'mundofonn-collection.js' | asset_url }}" defer="defer"></script>
+		<script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
 	</body>
 </html>
