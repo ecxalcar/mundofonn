@@ -17,7 +17,7 @@
 				<div class="col-md-9">
 					{% if customer.orders.size > 0 %}
 						<h4>
-							Order #1001
+							Order {{ order.name }}
 							{%- comment -%}
 								{{ 'customer.orders.title' | t }}
 							{%- endcomment -%}
@@ -33,18 +33,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								{%- comment -%}
-									{% for order in customer.orders %}
+								
+									{% for item in order.line_items %}
 										<tr>
-											<th scope="row"><a href="{{ order.customer_url }}">#{{ order.order_number }}</a></th>
-											<td>Jan 2, 2021</td>
-											<td>Paid</td>
-											<td>Unfulfilled</td>
-											<td>200.00 GTQ</td>
+											<th scope="row"><a href="{{ item.url }}">#{{ item.title }}</a></th>
+											<td>{{ item.sku }}</td>
+											<td>{{ item.price }}</td>
+											<td>{{ item.quantity }}</td>
+											<td>{{ item.final_line_price }}</td>
 										</tr>
 									{% endfor %}
-								{%- endcomment -%}
-								<tr>
+								
+								<!-- <tr>
 									<th scope="row">iPhone 1 Gris</th>
 									<td>11-123-123</td>
 									<td>300.00 GTQ</td>
@@ -71,7 +71,7 @@
 									<td>300.00 GTQ</td>
 									<td>2</td>
 									<td>600.00 GTQ</td>
-								</tr>
+								</tr> -->
 							</tbody>
 							<tfoot>
 								<tr>

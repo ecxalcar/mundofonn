@@ -3,8 +3,72 @@
 		<div class="row">
 			<div class="col-md-7 mx-auto">
 				<div class="login-form-wrapper p-5 bg-light border">
+					<h3>Reset Password</h3>
+					<div class="login-form mt-4">
+						{% form 'customer_login' %}
+							{% if form.errors %}
+								<div class="alert alert-danger">{{ form.errors | default_errors }}</div>
+							{% endif %}
+
+							<div class="form-floating mb-3">
+								<input type="email" name="customer[email]" id="CustomerEmail" class="form-control"placeholder="name@example.com">
+								<label for="CustomerEmail">Password</label>
+							</div>
+							<div class="form-floating">
+								<input type="password" name="customer[password]" id="CustomerPassword" class="form-control" placeholder="Password">
+								<label for="CustomerPassword">Confirm Password</label>
+							</div>
+							
+							<div class="form-links text-center d-flex align-items-center flex-column mt-4">
+								<input type="submit" value="Reset" class="btn btn-warning btn-lg">
+							</div>
+						{% endform %}
+					</div><!-- /login-form -->
+				</div><!-- /login-form-wrapper -->
+			</div><!--/.col-md-7-->
+		</div>
+	</div><!-- /container -->
+</section>
+
+<section>
+	<div class="container my-5 py-5">
+		<div class="row">
+			<div class="col-md-7 mx-auto">
+				<div class="login-form-wrapper p-5 bg-light border">
+					<h3>Activate Account</h3>
+					<div class="login-form mt-4">
+						{% form 'customer_login' %}
+							{% if form.errors %}
+								<div class="alert alert-danger">{{ form.errors | default_errors }}</div>
+							{% endif %}
+
+							<div class="form-floating mb-3">
+								<input type="email" name="customer[email]" id="CustomerEmail" class="form-control"placeholder="name@example.com">
+								<label for="CustomerEmail">Password</label>
+							</div>
+							<div class="form-floating">
+								<input type="password" name="customer[password]" id="CustomerPassword" class="form-control" placeholder="Password">
+								<label for="CustomerPassword">Confirm Password</label>
+							</div>
+							
+							<div class="form-links text-center d-flex align-items-center justify-content-center  mt-4">
+								<input type="submit" value="Activate Account" class="btn me-2 btn-warning btn-lg">
+								<input type="submit" value="Decline Invitation" class="btn ms-2 btn-outline-warning text-dark btn-lg">
+							</div>
+						{% endform %}
+					</div><!-- /login-form -->
+				</div><!-- /login-form-wrapper -->
+			</div><!--/.col-md-7-->
+		</div>
+	</div><!-- /container -->
+</section>
+
+<section>
+	<div class="container my-5 py-5">
+		<div class="row">
+			<div class="col-md-7 mx-auto">
+				<div class="login-form-wrapper p-5 bg-light border">
 					<h3>Sign In</h3>
-		
 					<div class="login-form mt-4">
 						{% form 'customer_login' %}
 							{% if form.errors %}
@@ -27,7 +91,6 @@
 								<a href="{{ routes.account_register_url }}" class="forgot-password mt-3">Create an account</a><br>
 							</div>
 						{% endform %}
- 
 					</div><!-- /login-form -->
 				</div><!-- /login-form-wrapper -->
 			</div><!--/.col-md-7-->
@@ -42,12 +105,10 @@
 							{% if form.errors %}
 								<div class="alert alert-danger">{{ form.errors | default_errors }}</div>
 							{% endif %}
-
 							<div class="form-floating mb-3">
 								<input type="email" name="customer[email]" id="CustomerEmail" class="form-control"placeholder="name@example.com">
 								<label for="CustomerEmail">Email address</label>
 							</div>
-
 							<div class="form-links text-center d-flex align-items-center flex-column mt-4">
 								<input type="submit" value="Recover Password" class="btn btn-warning btn-lg">
 							</div>
@@ -64,7 +125,6 @@
 	let loginFormWrapper = document.querySelector('.login-form-wrapper');
 	let passwordFormWrapper = document.querySelector('.password-form-wrapper');
 	let recoverLink = document.querySelector('.forgot-password');
-
 	recoverLink.addEventListener('click', function() {
 		loginFormWrapper.classList.add('d-none');
 		passwordFormWrapper.classList.remove('d-none');
