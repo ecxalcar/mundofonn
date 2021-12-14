@@ -7,7 +7,7 @@
 					<p>Create your password to active your account.</p>
 					<div class="login-form mt-4">
 						{% form 'activate_customer_password' %}
-							{% if form.errors.size > 0 %}
+							{% if form.errors %}
 								<div class="alert alert-danger">{{ form.errors | default_errors }}</div>
 							{% endif %}
 							<div class="form-floating mb-3">
