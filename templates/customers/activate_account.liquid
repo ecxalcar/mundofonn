@@ -11,16 +11,16 @@
 								<div class="alert alert-danger">{{ form.errors | default_errors }}</div>
 							{% endif %}
 							<div class="form-floating mb-3">
-								<input type="password" name="customer[password]" id="CustomerPassword" class="form-control" placeholder="Password" required>
+								<input type="password" name="customer[password]" id="CustomerPassword" class="form-control" placeholder="Password">
 								<label for="CustomerPassword">Password</label>
 							</div><!-- /form-floating -->
 							<div class="form-floating">
-								<input type="password" name="customer[password_confirmation]" id="CustomerConfirmPassword" class="form-control" placeholder="Confirm Password" required>
+								<input type="password" name="customer[password_confirmation]" id="CustomerConfirmPassword" class="form-control" placeholder="Confirm Password">
 								<label for="CustomerConfirmPassword">Confirm Password</label>
 							</div><!-- /form-floating -->
 							<div class="form-links text-center d-flex align-items-center justify-content-center  mt-4">
 								<input type="submit" value="Activate Account" class="btn me-2 btn-warning btn-lg">
-								<input type="submit" value="Decline Invitation" class="btn ms-2 btn-outline-warning text-dark btn-lg">
+								<input type="submit" name="decline" value="Decline Invitation" class="btn ms-2 btn-outline-warning text-dark btn-lg">
 							</div><!-- /form-links -->
 						{% endform %}
 					</div><!-- /login-form -->
