@@ -16,12 +16,7 @@
 			<div class="row">
 				<div class="col-md-9">
 					{% if customer.orders.size > 0 %}
-						<h4>
-							Order {{ order.name }}
-							{%- comment -%}
-								{{ 'customer.orders.title' | t }}
-							{%- endcomment -%}
-						</h4>
+						<h4>Order {{ order.name }}</h4>
 						<table class="table mt-3 table-striped table-hover">
 							<thead>
 								<tr>
@@ -33,45 +28,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								
-									{% for item in order.line_items %}
-										<tr>
-											<th scope="row"><a href="{{ item.url }}">#{{ item.title }}</a></th>
-											<td>{{ item.sku }}</td>
-											<td>{{ item.price }}</td>
-											<td>{{ item.quantity }}</td>
-											<td>{{ item.final_line_price }}</td>
-										</tr>
-									{% endfor %}
-								
-								<!-- <tr>
-									<th scope="row">iPhone 1 Gris</th>
-									<td>11-123-123</td>
-									<td>300.00 GTQ</td>
-									<td>2</td>
-									<td>600.00 GTQ</td>
-								</tr>
-								<tr>
-									<th scope="row">iPhone 1 Gris</th>
-									<td>11-123-123</td>
-									<td>300.00 GTQ</td>
-									<td>2</td>
-									<td>600.00 GTQ</td>
-								</tr>
-								<tr>
-									<th scope="row">iPhone 1 Gris</th>
-									<td>11-123-123</td>
-									<td>300.00 GTQ</td>
-									<td>2</td>
-									<td>600.00 GTQ</td>
-								</tr>
-								<tr>
-									<th scope="row">iPhone 1 Gris</th>
-									<td>11-123-123</td>
-									<td>300.00 GTQ</td>
-									<td>2</td>
-									<td>600.00 GTQ</td>
-								</tr> -->
+								{% for item in order.line_items %}
+									<tr>
+										<th scope="row"><a href="{{ item.url }}">#{{ item.title }}</a></th>
+										<td>{{ item.sku }}</td>
+										<td>{{ item.price }}</td>
+										<td>{{ item.quantity }}</td>
+										<td>{{ item.final_line_price }}</td>
+									</tr>
+								{% endfor %}
 							</tbody>
 							<tfoot>
 								<tr>
@@ -88,20 +53,13 @@
 								</tr>
 							</tfoot>
 						</table>
-
 					{% endif %}
 				</div><!-- /col9 -->
 				<div class="col-md-3">
-					<h4>Account Details</h4>
-					<p>{{ customer.name }}</p>
-					<p>{{ customer.default_address | format_address }}</p>
-					<a href="{{ routes.account_addresses_url }}">
-						{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
-					</a>
+					{% render 'mundofonn-account-details' %}
 				</div><!-- /col-3 -->
 			</div><!-- /row -->
 		</div><!-- /order-account -->
-
 	</div><!-- /container -->
 
 	<svg style="display:none">

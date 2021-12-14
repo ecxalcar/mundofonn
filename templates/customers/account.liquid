@@ -1,35 +1,26 @@
-<!-- {{ 'customer.css' | asset_url | stylesheet_tag }} -->
+
 <style>
 	.account a svg {
     width: 1.5rem;
     margin-bottom: -0.03rem;
-    margin-right: 1rem;
+    margin-right: 5px;
 }
 </style>
 
 <div class="customer account">
 	<div class="container">
 		<div class="heading-account mb-5 d-inline-block w-100 text-end">
-			<h2 class="text-center">Mi {{ 'customer.account.title' | t }} - {{ customer.name }}</h2>
-			<a href="{{ routes.account_logout_url }}">
+			<h2 class="text-center">My Account - {{ customer.name }}</h2>
+			<a href="{{ routes.account_logout_url }}" class="btn btn-warning">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
 				Log out
-				{%- comment -%}
-				{{ 'customer.log_out' | t }}
-				{%- endcomment -%}
 			</a>
 		</div><!-- /heading-account -->
 		<div class="orders-account mt-5">
 			<div class="row">
 				<div class="col-md-9">
-					<h4>
-						Order History
-						{%- comment -%}
-							{{ 'customer.orders.title' | t }}
-						{%- endcomment -%}
-					</h4>
-
-					{% paginate customer.orders by 20 %}
+					<h4>Order History</h4>
+					{% paginate customer.orders by 5 %}
 						{% if customer.orders.size > 0 %}
 							<table class="table mt-3 table-striped table-hover">
 								<thead>
@@ -51,53 +42,17 @@
 											<td>{{ order.total_price | money_with_currency }}</td>
 										</tr>
 									{% endfor %}
-									<!-- <tr>
-										<th scope="row"><a href="">#2</a></th>
-										<td>Jan 2, 2021</td>
-										<td>Paid</td>
-										<td>Unfulfilled</td>
-										<td>200.00 GTQ</td>
-									</tr>
-									<tr>
-										<th scope="row"><a href="">#3</a></th>
-										<td>Jan 2, 2021</td>
-										<td>Paid</td>
-										<td>Unfulfilled</td>
-										<td>200.00 GTQ</td>
-									</tr>
-									<tr>
-										<th scope="row"><a href="">#4</a></th>
-										<td>Jan 2, 2021</td>
-										<td>Paid</td>
-										<td>Unfulfilled</td>
-										<td>200.00 GTQ</td>
-									</tr>
-									<tr>
-										<th scope="row"><a href="">#5</a></th>
-										<td>Jan 2, 2021</td>
-										<td>Paid</td>
-										<td>Unfulfilled</td>
-										<td>200.00 GTQ</td>
-									</tr> -->
 								</tbody>
 							</table>
-
 						{% else %}
-							<h6>You have not placed an order yet.</h6>
+							<h6>No orders yet.</h6>
 						{% endif %}
-						
 						{% render 'mundofonn-pagination' paginate:paginate %}
-
 					{% endpaginate %}
-
 				</div><!-- /col9 -->
+
 				<div class="col-md-3">
-					<h4>Account Details</h4>
-					<p>{{ customer.name }}</p>
-					<p>{{ customer.default_address | format_address }}</p>
-					<a href="{{ routes.account_addresses_url }}">
-						{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
-					</a>
+					{% render 'mundofonn-account-details' %}
 				</div><!-- /col3 -->
 			</div><!-- /row -->
 		</div><!-- /order-account -->

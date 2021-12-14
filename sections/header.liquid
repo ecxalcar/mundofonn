@@ -38,7 +38,15 @@
 
 			{% if shop.customer_accounts_enabled %}
 				{% if customer %}
-					<a href="{{ routes.account_url }}" class="btn btn-secondary">Account</a>
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Account</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+							<li><a class="dropdown-item" href="{{ routes.account_url }}">Order History</a></li>
+							<li><a class="dropdown-item" href="{{ routes.account_addresses_url }}">Address</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="{{ routes.account_logout_url }}">Log Out</a></li>
+						</ul>
+					</div>
 				{% else %}
 					<a href="{{ routes.account_login_url }}" class="btn">Login</a>
 					<a href="{{ routes.account_register_url }}" class="btn btn-secondary">Register</a>
