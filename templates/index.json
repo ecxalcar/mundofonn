@@ -31,6 +31,9 @@
         "slides_to_show": 4
       }
     },
+    "mundofonn_home_article": {
+      "type": "mundofonn-home-article"
+    },
     "mundofonn_social_media": {
       "type": "mundofonn-social-media",
       "settings": {
@@ -43,6 +46,7 @@
     "mundofonn_featured_collection",
     "mundofonn_faqs",
     "mundofonn_testimonials",
+    "mundofonn_home_article",
     "mundofonn_social_media"
   ]
 }
