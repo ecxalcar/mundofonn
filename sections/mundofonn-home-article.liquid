@@ -1,20 +1,24 @@
+<style>
+    .article .img img {
+        height: 300px;
+        min-height: 300px;
+        object-fit: cover;
+    }
+
+</style>
 <div class="container my-5 py-5">
     <div class="row">
         <div class="col-md-3">
             <h2>{{ section.settings.heading_article }}</h2>
         </div>
         <div class="col-md-9">
-            {% for article in section.settings.popular_article %}
-                <h3>{{ article.title }}</h3>
-            {% endfor %}
-            {{ section.settings.popular_article }}
             <div class="article bg-light border p-4">
                 <div class="img">
-                    {{ 'lifestyle-2' | placeholder_svg_tag: 'w-100' }}
+                    {{ section.settings.popular_article.image | img_url: 'master' | img_tag: '','w-100' }}
                 </div>
-                <h3 class="py-3">Title Post</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum consequuntur esse vero. Tempora dolor saepe alias in fugiat quidem perspiciatis a, laudantium rerum dolore exercitationem blanditiis eveniet iste facilis! Quaerat?</p>
-                <a href="#0" class="btn btn-warning px-5">Read More...</a>
+                <h3 class="py-3">{{ section.settings.popular_article.title }}</h3>
+                <p>{{ section.settings.popular_article.content }}</p>
+                <a href="{{ section.settings.popular_article.url }}" class="btn btn-warning px-5">Read More...</a>
             </div>
         </div>
     </div>
