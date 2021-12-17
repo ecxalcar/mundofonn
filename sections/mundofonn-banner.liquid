@@ -1,11 +1,17 @@
-<div class="container">
-    
-    <div class="banner text-center p-5 border rounded-3" style="background: {{ section.settings.bg_color_banner }};">
-        <h3 class="mb-5" style='color: {{ section.settings.color_heading }}; font-family: {{ section.settings.heading_font.family }} '>{{ section.settings.heading_banner }}</h3>
-        <a href="{{ section.settings.url_banner }}" class="btn btn-warning px-5">Ver ahora!</a>
-    </div>
-</div><!--/.container-->
+{% style %}
+    {% assign header_font = section.settings.heading_font %}
+    {{ header_font | font_face }}
+    .heading-banner {    
+        font-family: {{ header_font.family }},{{ header_font.fallback_families }};        
+    }
+{% endstyle %}
 
+<div class="container">
+    <div class="banner text-center p-5 border rounded-3" style="background: {{ section.settings.bg_color_banner }};">
+        <h3 class="mb-5 heading-banner" style="color: {{ section.settings.color_heading }}">{{ section.settings.heading_banner }}</h3>
+        <a href="{{ section.settings.url_banner }}" class="btn btn-warning px-5">Ver ahora!</a>
+    </div><!-- / banner -->
+</div><!--/.container-->
 
 {% schema %}
 {
@@ -33,7 +39,7 @@
             "type": "color",
             "id": "color_heading",
             "label": "Choose a heading color",
-            "default": "#C0D0D7"
+            "default": "#fff"
         },
         {
             "type": "url",

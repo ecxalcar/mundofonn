@@ -25,7 +25,7 @@
         <h3 class="mt-5 bg-dark rounded-pill d-inline-block py-2 px-5 text-white text-center">{{ section.settings.section_heading }}</h3>
     </div>
 
-    <div class="row row-cols-sm-2 row-cols-md-3">
+    <div class="row row-cols-sm-2 row-cols-md-3 mt-5">
         {% for block in section.blocks %}
             {% case block.type %}
                 {% when 'question' %}
