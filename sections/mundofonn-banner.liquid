@@ -1,0 +1,45 @@
+<div class="container">
+    
+    <div class="banner text-center p-5 border rounded-3" style="background: {{ section.settings.bg_color_banner }};">
+        <h3 class="mb-5" style='color: {{ section.settings.color_heading }}; font-family: {{ section.settings.heading_font.family }} '>{{ section.settings.heading_banner }}</h3>
+        <a href="{{ section.settings.url_banner }}" class="btn btn-warning px-5">Ver ahora!</a>
+    </div>
+</div><!--/.container-->
+
+
+{% schema %}
+{
+    "name": "Banner",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading_banner",
+            "label": "Heading banner",
+            "default": "Conoce todas las consolas disponibles :)"
+        },
+        {
+            "type": "font_picker",
+            "id": "heading_font",
+            "label": "Heading font",
+            "default": "helvetica_n4"
+        },
+        {
+            "type": "color_background",
+            "id": "bg_color_banner",
+            "label": "Choose a background color or make a gradient",
+            "default": "linear-gradient(#a1efff, #001624)"
+        },
+        {
+            "type": "color",
+            "id": "color_heading",
+            "label": "Choose a heading color",
+            "default": "#C0D0D7"
+        },
+        {
+            "type": "url",
+            "id": "url_banner",
+            "label": "Button url"
+        }
+    ]
+}
+{% endschema %}
