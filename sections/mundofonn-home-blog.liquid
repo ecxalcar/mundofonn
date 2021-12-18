@@ -24,7 +24,6 @@
 			{% else %}
 				<div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
 					<div class="card {% cycle 'border', 'bg-light', 'border-dark', '' %}">
-						<!-- <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""> -->
 						{{ article.image | img_url: 'master' | img_tag: '', 'w-100' }}
 						<div class="card-body">
 							<h5 class="card-title">{{ article.title }}</h5>
@@ -116,19 +115,6 @@
 			</div><!--col-->
 		{% endfor %}
 	</div><!--row-->
-
-	<div class="map">
-		<div class="container">
-			<h2>Our location</h2>
-			<div class="container-map w-100">
-				{% if section.settings.our_location %}
-					{{ section.settings.our_location }}
-				{% else %}
-					<iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.19062066636!2d-90.53273738471634!3d14.588211381290186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a15f18a23e65%3A0xa8d9f9b1ae2d4eca!2sLa%20Aurora%20International%20Airport!5e0!3m2!1sen!2sgt!4v1639764322286!5m2!1sen!2sgt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-				{% endif %}
-			</div><!-- /container -->
-		</div><!-- /container-map -->
-	</div><!-- /map -->
 </div>
 
 {% schema %}
@@ -146,11 +132,6 @@
             "type": "blog",
             "id": "home_blog",
             "label": "Select a Blog"
-        },
-        {
-            "type": "html",
-            "id": "our_location",
-            "label": "Paste iframe map"
         }
     ]
 }
