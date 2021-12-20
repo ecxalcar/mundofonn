@@ -1,27 +1,71 @@
-<div class="container">
-    <div class="map my-5 py-5">
-		<div class="container">
-			<h2>Our location</h2>
-			<div class="container-map w-100">
-				{% if section.settings.our_location.size > 0 %}
-					{{ section.settings.our_location }}
+<style>
+	.object-fit-cover {
+		object-fit: cover;
+	}
+
+	.bg-info {
+		background-color: #6ec1e6!important;
+	}
+
+	.position-absolute {
+		top: 5px;
+		right: 5px;
+	}
+
+</style>
+<div class="container my-5 py-5">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="map bg-light p-5 border h-100">
+				{% if section.settings.heading_location.size > 0 %}
+					<h2>{{ section.settings.heading_location }}</h2>
 				{% else %}
-					<iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.19062066636!2d-90.53273738471634!3d14.588211381290186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a15f18a23e65%3A0xa8d9f9b1ae2d4eca!2sLa%20Aurora%20International%20Airport!5e0!3m2!1sen!2sgt!4v1639764322286!5m2!1sen!2sgt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					<h2>Our Location :)</h2>
 				{% endif %}
-			</div><!-- /container -->
-		</div><!-- /container-map -->
-	</div><!-- /map -->
-</div>
+				<div class="container-map w-100">
+					{% if section.settings.our_location.size > 0 %}
+						{{ section.settings.our_location }}
+					{% else %}
+						<iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.19062066636!2d-90.53273738471634!3d14.588211381290186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a15f18a23e65%3A0xa8d9f9b1ae2d4eca!2sLa%20Aurora%20International%20Airport!5e0!3m2!1sen!2sgt!4v1639764322286!5m2!1sen!2sgt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					{% endif %}
+				</div><!-- /container-map -->
+			</div><!-- /map -->
+		</div><!-- /col -->
+		<div class="col-md-6">
+			<div class="page bg-light p-5 border h-100">
+				{% if section.settings.page.size > 0 %}
+					<h2>{{ section.settings.page.title }}</h2>
+					<p>{{ section.settings.page.content | strip_html | truncatewords: 190, '...' }}</p>
+					<a href="{{ section.settings.page.url }}" class="btn btn-warning px-5">Read More</a>
+				{% else %}
+					<h2>Page Title</h2>
+					<p>  hello This is my content about us. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales feugiat ipsum id hendrerit. Fusce in enim eu purus porttitor pellentesque. Sed efficitur nunc ante, ac pretium sapien ullamcorper at. Duis ut tellus neque. Duis dignissim, felis vel tempus ultricies, sapien ligula pretium ex, vel convallis ipsum tellus semper mauris. Nunc consequat vehicula ipsum, non scelerisque tortor. Donec a felis vel orci fringilla sodales. Cras posuere purus turpis, at scelerisque nibh mattis at. Pellentesque non mollis sem. Morbi arcu dui, efficitur molestie erat at, pharetra rutrum ipsum. Nam a laoreet lacus. Vivamus euismod nulla at laoreet sagittis. Aenean semper non ipsum in faucibus. Morbi mattis neque lorem, eget eleifend ipsum luctus tempor.   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales feugiat ipsum id hendrerit. Fusce in enim eu purus porttitor pellentesque. Sed efficitur nunc ante, ac pretium sapien ullamcorper at. Duis ut tellus neque. Duis dignissim, felis vel tempus ultricies, sapien ligula pretium ex, vel convallis ipsum tellus semper mauris. Nunc consequat vehicula ipsum, non scelerisque tortor. Donec a felis vel orci fringilla sodales. Cras posuere purus turpis, at...</p>
+					<a href="#0" class="btn btn-warning px-5">Read More</a>
+				{% endif %}
+			</div><!-- /page -->
+		</div><!-- /col -->
+	</div><!-- /row -->
+</div><!-- /container -->
 
 {% schema %}
 {
     "name": "Location",
 	"tag": "section",
     "settings": [
+		{
+			"type": "text",
+			"id": "heading_location",
+			"label": "Heading Location"
+		},
         {
             "type": "html",
             "id": "our_location",
             "label": "Paste iframe map"
+        },
+        {
+            "type": "page",
+            "id": "page",
+            "label": "Choose a Page"
         }
     ]
 }

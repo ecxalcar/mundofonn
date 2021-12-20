@@ -1,0 +1,89 @@
+<div class="container my-5">
+	<div class="bg-info border">
+		<div class="row g-0">
+			{% if section.settings.product %}
+				<div class="col-md-6">
+					{{ 's21FE.jpg' | asset_url | img_tag: '', 'w-100 object-fit-cover' }}
+				</div><!-- /col -->
+				<div class="col-md-6 p-4 text-center d-flex flex-column align-items-center justify-content-center position-relative">
+					{% if section.settings.liquid_product %}
+						{{ section.settings.liquid_product }}
+					{% endif %}
+                    {%- comment -%}
+                        {% if section.settings.product.available %}
+                            <div class="badge bg-primary position-absolute">Disponible</div>
+                        {% else %}
+                            <div class="badge bg-danger position-absolute">Agotado</div>
+                        {% endif %}
+                    {%- endcomment -%}
+					<h1>{{ section.settings.product.title }}</h1>
+                    
+                    <div class="wrapper-btn d-flex">
+                        <a href="{{ section.settings.product.url }}" class="btn btn-dark px-5 mt-3 mx-2">Comprarlo ahora</a>
+                        <button type="button" class="btn btn-warning mt-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Ver Video
+                        </button>
+                    </div>
+				</div><!-- /col -->
+			{% else %}
+				<div class="col-md-6">
+					{{ 's21FE.jpg' | asset_url | img_tag: '', 'w-100 object-fit-cover' }}
+				</div><!-- /col -->
+				<div class="col-md-6 p-4 text-center d-flex flex-column align-items-center justify-content-center position-relative">
+					<div class="badge bg-primary position-absolute">Disponible</div>
+					<h1>El mejor celular de este 2022!</h1>
+                    <div class="wrapper-btn d-flex">
+                        <a href="#0" class="btn btn-dark px-5 mt-3 mx-2">Comprarlo ahora</a>
+                        <button type="button" class="btn btn-warning mt-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Ver Video
+                        </button>
+                    </div>
+				</div><!-- /col -->
+            {% endif %}
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            {% if section.settings.product_description_video %}
+                                <iframe width="100%" height="350" src="https://www.youtube.com/embed/{{ section.settings.product_description_video.id }}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            {% else %}
+                                <iframe width="100%" height="350" src="https://www.youtube.com/embed/6qe3nhg_w-4?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div><!-- /row -->
+	</div><!-- /bg -->
+</div><!-- /container -->
+
+{% schema %}
+{
+    "name": "Product",
+	"tag": "section",
+    "settings": [
+        {
+            "type": "product",
+            "id": "product",
+            "label": "Choose a Product"
+        },
+        {
+            "type": "liquid",
+            "id": "liquid_product",
+            "label": "Liquid Code"
+        },
+        {
+            "type": "video_url",
+            "id": "product_description_video",
+            "label": "Product description video",
+            "accept": [
+                "youtube"
+            ]
+        }
+    ]
+}
+{% endschema %}

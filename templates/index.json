@@ -43,6 +43,9 @@
     "mundofonn_location": {
       "type": "mundofonn-location"
     },
+    "mundofonn_home_product": {
+      "type": "mundofonn-home-product"
+    },
     "mundofonn_social_media": {
       "type": "mundofonn-social-media",
       "settings": {
@@ -59,6 +62,7 @@
     "mundofonn_home_article",
     "mundofonn_banner",
     "mundofonn_location",
+    "mundofonn_home_product",
     "mundofonn_social_media"
   ]
 }
