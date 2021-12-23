@@ -37,7 +37,7 @@
                         {% if block.settings.question_img == blank %}
                             {{ 'lifestyle-2' | placeholder_svg_tag }}
                         {% else %}
-                            {{ block.settings.question_img | img_url: 'master' | img_tag: '', 'mb-5' }}
+                            {{ block.settings.question_img | image_url: 'master' | img_tag: '', 'mb-5' }}
                         {% endif %}
                     </div><!-- /card -->
                     {% unless block.settings.question_url == blank %}

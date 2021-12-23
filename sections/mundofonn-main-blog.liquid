@@ -13,7 +13,7 @@
 							<div class="col-3">
 								<div class="img">
 									{% if article.image %}
-										{{ article.image | img_url: 'master' | img_tag: '', 'w-100' }}
+										{{ article.image | image_url: 'master' | img_tag: '', 'w-100' }}
 									{% else %}
 										{{ 'product-4' | placeholder_svg_tag: 'w-100' }}
 									{% endif %}
@@ -22,7 +22,7 @@
 							<div class="col-9">
 								<div class="description">
 									<h4><strong>{{ article.title }}</strong></h4>
-									<cite>By <a href="#0">{{ article.author }}</a> | Published on {{ article.published_at | date:"%b %d, %Y" }}</cite>
+									<cite>By <a href="#0">{{ article.author }}</a> | Published on {{ article.published_at | date: "%b %d, %Y" }}</cite>
 									<p>{{ article.excerpt_or_content | strip_html | truncatewords: 20, '...' }}</p>
 									<a href="{{ article.url }}" class="btn btn-warning">Read Post</a>
 								</div><!--/.description-->
@@ -33,7 +33,7 @@
 			{% endfor %}
 		</div><!--/.row-->
 
-		{% render 'mundofonn-pagination' paginate:paginate %}
+		{% render 'mundofonn-pagination' paginate: paginate %}
 	{% endpaginate %}
 </div><!--/.container-->
 

@@ -10,7 +10,7 @@
 		<link rel="canonical" href="{{ canonical_url }}">
 		<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 		{%- if settings.favicon != blank -%}
-		<link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+		<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: '32x32' }}">
 		{%- endif -%}
 		{%- unless settings.type_header_font.system? -%}
 		<link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
@@ -37,7 +37,7 @@
 						<div class="col-12 col-md-8 mx-auto">
 							<div class="card-content bg-light border border-2 rounded-3 p-5">
 								<h2 class="text-center">Your Gift Card</h2>
-								{{ 'gift-card.png' | asset_url | img_tag: '','w-100' }}
+								{{ 'gift-card.png' | asset_url | img_tag: '', 'w-100' }}
 								<div class="text-center">
 									<h3>Hey {{ gift_card.customer.first_name }}!</h3>
 									{% if gift_card.enabled %}
@@ -76,6 +76,7 @@
 										src="{{ 'gift-card/add-to-apple-wallet.svg' | shopify_asset_url }}"
 										width="120"
 										height="40"
+										loading="lazy"
 										alt="Add To Apple Wallet">
 									</a>
 								{% endif %}

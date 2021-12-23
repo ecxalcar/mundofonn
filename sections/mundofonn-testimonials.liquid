@@ -70,7 +70,7 @@
                         <div class="testimonial">
                             <div class="profile bg-light">
                                 {% unless block.settings.author_img == blank %}
-                                    {{ block.settings.author_img | img_url: 'master' | img_tag: '', '' }}
+                                    {{ block.settings.author_img | image_url: 'master' | img_tag: '', '' }}
                                 {% else %}
                                     {{ 'product-2' | placeholder_svg_tag }}
                                 {% endunless %}

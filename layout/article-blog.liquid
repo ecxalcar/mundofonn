@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
         {%- if settings.favicon != blank -%}
-            <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+            <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: '32x32' }}">
         {%- endif -%}
 
         {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
@@ -57,7 +57,7 @@
         {%- endif -%}
 
         <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-        <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js" defer="defer"></script>
         <script src="{{ 'mundofonn-testimonials.js' | asset_url }}" defer="defer"></script>
         <script src="{{ 'mundofonn-slider-primary.js' | asset_url }}" defer="defer"></script>
         <script src="{{ 'mundofonn-collection.js' | asset_url }}" defer="defer"></script>
