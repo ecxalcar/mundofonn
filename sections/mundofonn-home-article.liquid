@@ -19,7 +19,7 @@
                     </div>
                     <h3 class="py-3">{{ section.settings.popular_article.title }}</h3>
                     <p>{{ section.settings.popular_article.excerpt_or_content | strip_html | truncatewords: 20, '...' }}</p>
-                    <a href="{{ section.settings.popular_article.url }}" class="btn btn-warning px-5">Read More...</a>
+                    <a href="{{ section.settings.popular_article.url }}" class="btn btn-warning px-5">{{ 'homepage.home_article.read_more_btn' | t }}</a>
                 </div><!-- /article -->
             {% else %}
                 <div class="article bg-light border p-4">
@@ -28,7 +28,7 @@
                     </div>
                     <h3 class="py-3">Post title</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione, facere autem. Tempore odit at sequi reiciendis ea numquam, possimus facilis saepe quidem voluptatibus voluptate similique quos doloribus neque, eaque cumque.</p>
-                    <a href="#0" class="btn btn-warning px-5">Read More...</a>
+                    <a href="#0" class="btn btn-warning px-5">{{ 'homepage.home_article.read_more_btn' | t }}</a>
                 </div><!-- /article -->
             {% endif %}
         </div>

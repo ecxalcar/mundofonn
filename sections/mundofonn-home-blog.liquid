@@ -8,7 +8,7 @@
 					<div class="card bg-warning">
 						<div class="card-body">
 							<h5 class="card-title">{{ article.title }}</h5>
-							<a href="{{ article.url }}" class="btn btn-dark">Read More</a>
+							<a href="{{ article.url }}" class="btn btn-dark">{{ 'homepage.home_blog.read_more_btn' | t }}</a>
 						</div><!--card-body-->
 					</div><!--card-->
 				</div><!--col-->
@@ -17,7 +17,7 @@
 					<div class="card bg-light border-warning">
 						<div class="card-body">
 							<h5 class="card-title">{{ article.title }}</h5>
-							<a href="{{ article.url }}" class="btn btn-dark">Read More</a>
+							<a href="{{ article.url }}" class="btn btn-dark">{{ 'homepage.home_blog.read_more_btn' | t }}</a>
 						</div><!--card-body-->
 					</div><!--card-->
 				</div><!--col-->
@@ -27,7 +27,7 @@
 						{{ article.image | image_url: width: 500 | image_tag: alt: '', class: 'w-100' }}
 						<div class="card-body">
 							<h5 class="card-title">{{ article.title }}</h5>
-							<a href="{{ article.url }}" class="btn btn-warning">Read More</a>
+							<a href="{{ article.url }}" class="btn btn-warning">{{ 'homepage.home_blog.read_more_btn' | t }}</a>
 						</div><!--card-body-->
 					</div><!--card-->
 				</div><!--col-->
@@ -39,6 +39,7 @@
 				<div class="card-body">
 					<h5 class="card-title">Card title</h5>
 					<p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+					<button class="btn btn-primary">{{ 'homepage.home_blog.read_more_btn' | t }}</button>
 				</div><!--card-body-->
 				</div><!--card-->
 			</div><!--col-->

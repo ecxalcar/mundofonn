@@ -3,6 +3,25 @@
     "featured_slider": {
       "featured_slider_title": "Slider Title *",
       "featured_slider_description": "Slider Description *"
+    },
+    "testimonials": {
+      "author": "Author *"
+    },
+    "home_blog": {
+      "read_more_btn": "Read More *"
+    },
+    "home_article": {
+      "read_more_btn": "Read More *"
+    },
+    "collection_banner": {
+      "collection_btn": "Check it out now!*"
+    },
+    "home_page": {
+      "read_more_btn": "Read More *"
+    },
+    "home_product": {
+      "buy_now_btn": "Buy it now! *",
+      "watch_video_btn": "Watch Video *"
     }
   },
   "general": {

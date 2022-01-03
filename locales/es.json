@@ -3,6 +3,25 @@
     "featured_slider": {
       "featured_slider_title": "Titulo del slider *",
       "featured_slider_description": "Descripcion del slider *"
+    },
+    "testimonials": {
+      "author": "Autor *"
+    },
+    "home_blog": {
+      "read_more_btn": "Leer Más *"
+    },
+    "home_article": {
+      "read_more_btn": "Leer Más*"
+    },
+    "collection_banner": {
+      "collection_btn": "Echar un vistazo ahora!*"
+    },
+    "home_page": {
+      "read_more_btn": "Leer Más *"
+    },
+    "home_product": {
+      "buy_now_btn": "Comprarlo ahora! *",
+      "watch_video_btn": "Ver video *"
     }
   },
   "general": {

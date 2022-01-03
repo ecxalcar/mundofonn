@@ -19,9 +19,9 @@
 					<h1>{{ section.settings.product.title }}</h1>
                     
                     <div class="wrapper-btn d-flex">
-                        <a href="{{ section.settings.product.url }}" class="btn btn-dark px-5 mt-3 mx-2">Comprarlo ahora</a>
+                        <a href="{{ section.settings.product.url }}" class="btn btn-dark px-5 mt-3 mx-2">{{ 'homepage.home_product.buy_now_btn' | t }}</a>
                         <button type="button" class="btn btn-warning mt-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Ver Video
+                            {{ 'homepage.home_product.watch_video_btn' | t }}
                         </button>
                     </div>
 				</div><!-- /col -->
@@ -33,11 +33,11 @@
 					<div class="badge bg-primary position-absolute">Disponible</div>
 					<h1 class="mb-0">El mejor celular de este 2022!</h1>
                     <div class="wrapper-btn d-flex">
-                        <a href="#0" class="btn btn-dark px-5 mt-3 mx-2">Comprarlo ahora</a>
+                        <a href="#0" class="btn btn-dark px-5 mt-3 mx-2">{{ 'homepage.home_product.buy_now_btn' | t }}</a>
                         <button type="button" class="btn btn-warning mt-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Ver Video
+                            {{ 'homepage.home_product.watch_video_btn' | t }}
                         </button>
-                    </div>
+                    </div><!--/.d-flex-->
 				</div><!-- /col -->
             {% endif %}
             <!-- Modal -->
