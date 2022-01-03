@@ -80,8 +80,12 @@
                     <div class="item">
                         {{ block.settings.slide_image | image_url: width: 500 | image_tag: alt: '', class: 'd-block w-100' }}
                         <div class="carousel-caption d-none d-md-block bg-dark">
-                            <h3 class="text-white">{{ block.settings.slide_heading }}</h3>
-                            {{ block.settings.slide_content }}
+                            {%- comment -%}
+                                <h3 class="text-white">{{ block.settings.slide_heading }}</h3>
+                                {{ block.settings.slide_content }}
+                            {%- endcomment -%}
+                            <h3 class="text-white">{{ 'homepage.featured_slider.featured_slider_title' | t }}</h3>
+                            <p>{{ 'homepage.featured_slider.featured_slider_description' | t }}</p>
                         </div><!--/.carousel-caption-->
                     </div><!-- /item -->
             {% endcase %}
@@ -90,8 +94,8 @@
                     <div class="item">
                         {{ 'lifestyle-1' | placeholder_svg_tag: 'd-block w-100' }}
                         <div class="carousel-caption d-none d-md-block bg-dark">
-                            <h3 class="text-white">Slide Title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                            <h3 class="text-white">{{ 'homepage.featured_slider.featured_slider_title' | t }}</h3>
+                            <p>{{ 'homepage.featured_slider.featured_slider_description' | t }}</p>
                         </div><!--/.carousel-caption-->
                     </div>
                 {% endfor %}

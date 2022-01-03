@@ -1,4 +1,10 @@
 {
+  "homepage": {
+    "featured_slider": {
+      "featured_slider_title": "Slider Title *",
+      "featured_slider_description": "Slider Description *"
+    }
+  },
   "general": {
     "password_page": {
       "login_form_heading": "Enter store using password:",
