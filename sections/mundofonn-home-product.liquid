@@ -3,7 +3,7 @@
 		<div class="row g-0">
 			{% if section.settings.product %}
 				<div class="col-md-6">
-					{{ 's21FE.jpg' | asset_url | img_tag: '', 'w-100 object-fit-cover' }}
+					{{ 's21FE.jpg' | asset_url | image_tag: alt: '', class: 'w-100 object-fit-cover' }}
 				</div><!-- /col -->
 				<div class="col-md-6 p-4 text-center d-flex flex-column align-items-center justify-content-center position-relative">
 					{% if section.settings.liquid_product %}
@@ -27,7 +27,7 @@
 				</div><!-- /col -->
 			{% else %}
 				<div class="col-md-6">
-					{{ 's21FE.jpg' | asset_url | img_tag: '', 'w-100 object-fit-cover' }}
+					{{ 's21FE.jpg' | asset_url | image_tag: alt: '', class: 'w-100 object-fit-cover' }}
 				</div><!-- /col -->
 				<div class="col-md-6 p-4 text-center d-flex flex-column align-items-center justify-content-center position-relative">
 					<div class="badge bg-primary position-absolute">Disponible</div>

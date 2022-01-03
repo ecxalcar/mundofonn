@@ -42,7 +42,9 @@
 
     
     {% comment %}{{ 'base.css' | asset_url | stylesheet_tag }}{% endcomment %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css"> -->
+
+    {{ 'glider.min.css' | asset_url | stylesheet_tag }}
     {{ 'lightbox.css' | asset_url | stylesheet_tag }}
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
 
@@ -58,7 +60,8 @@
     {%- endif -%}
 
     <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js" defer="defer"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js" defer="defer"></script> -->
+    <script src="{{ 'glider.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'mundofonn-testimonials.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'mundofonn-slider-primary.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'mundofonn-collection.js' | asset_url }}" defer="defer"></script>
@@ -113,6 +116,7 @@
   
     <script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'lightbox-plus-jquery.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js' }}" defer="defer"></script>
+    <script src="{{ 'masonry.pkgd.min.js' | asset_url }}" defer="defer"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" defer="defer"></script> -->
   </body>
 </html>

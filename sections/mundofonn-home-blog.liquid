@@ -24,7 +24,7 @@
 			{% else %}
 				<div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
 					<div class="card {% cycle 'border', 'bg-light', 'border-dark', '' %}">
-						{{ article.image | image_url: 'master' | img_tag: '', 'w-100' }}
+						{{ article.image | image_url: 'master' | image_tag: alt: '', class: 'w-100' }}
 						<div class="card-body">
 							<h5 class="card-title">{{ article.title }}</h5>
 							<a href="{{ article.url }}" class="btn btn-warning">Read More</a>

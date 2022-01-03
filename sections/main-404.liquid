@@ -1,0 +1,38 @@
+<section>
+	<div class="container">
+		<div class="content-404 mt-5 {{ section.settings.alignment }}">
+			<h3 class="display-2">PAGE NOT FOUND</h3>
+			{{ '404.jpg' | asset_url | img_tag: '','w-50 mb-4' }}
+			<br>
+			<a href="{{ routes.all_products_collection_url }}" class="btn btn-outline-warning text-dark">Continue Shopping</a>
+		</div><!-- /content -->
+	</div><!-- /container -->
+</section>
+
+{% schema %}
+{
+	"name": "Page not found",
+	"settings": [
+		{
+			"type": "select",
+			"id": "alignment",
+			"label": "Alignment",
+			"options": [
+				{
+					"value": "text-start",
+					"label": "Left"
+				},
+				{
+					"value": "text-center",
+					"label": "Center"
+				},
+				{
+					"value": "text-end",
+					"label": "Right"
+				}
+			],
+			"default": "text-center"
+		}
+	]
+}
+{% endschema %}
