@@ -6,9 +6,9 @@
 				<a href="{{ collection.url }}">
 					<div class="card p-2 bg-light">
 						{% if collection.image %}
-							{{ collection.image | image_url: 'master' | image_tag: alt: '', class: '' }}
+							{{ collection.image | image_url: width: 500 | image_tag: alt: '', class: '' }}
 						{% else %}
-							{{ collection.products.first.image | image_url: 'master' | image_tag: alt: '', class: 'w-100' }}
+							{{ collection.products.first.image | image_url: width: 500 | image_tag: alt: '', class: 'w-100' }}
 						{% endif %}
 						<h5 class="text-center mt-3">{{ collection.title }}</h5>
 					</div><!-- /card -->

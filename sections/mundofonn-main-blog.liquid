@@ -13,7 +13,7 @@
 							<div class="col-3">
 								<div class="img">
 									{% if article.image %}
-										{{ article.image | image_url: 'master' | image_tag: alt: '', class: 'w-100', loading: 'lazy' }}
+										{{ article.image | image_url: width: 500 | image_tag: alt: '', class: 'w-100', loading: 'lazy' }}
 									{% else %}
 										{{ 'product-4' | placeholder_svg_tag: 'w-100' }}
 									{% endif %}

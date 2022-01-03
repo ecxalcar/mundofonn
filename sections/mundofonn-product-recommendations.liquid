@@ -64,7 +64,7 @@
                             {% if product.featured_media == blank %}
                                 {{ 'product-5' | placeholder_svg_tag }}
                             {% else %}
-                                {{ product.featured_media | image_url: 'master' | image_tag: alt: '', class: 'card-img-top' }}
+                                {{ product.featured_media | image_url: width: 500 | image_tag: alt: '', class: 'card-img-top' }}
                             {% endif %}
                             <div class="card-body">
                                 <h5 class="card-title">{{ product.price | money_with_currency }}</h5>

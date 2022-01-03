@@ -52,7 +52,7 @@
 					{% if block.settings.footer_img == blank %}
 						{{ 'product-1' | placeholder_svg_tag }}
 					{% else %}
-						{{ block.settings.footer_img | image_url: 'master' | image_tag: alt: '', class: '' }}
+						{{ block.settings.footer_img | image_url: width: 500 | image_tag: alt: '', class: '' }}
 					{% endif %}
 				</div><!-- /img-wrapper -->
 			{% endif %}

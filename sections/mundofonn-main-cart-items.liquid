@@ -30,7 +30,7 @@
 								<th scope="row">{{ forloop.index }}</th>
 								<td>
 									<div class="product" style="max-width: 500px;">
-										{{ item.image | image_url: 'master' | image_tag: alt: '', class: 'img_thumbnail me-3' }}
+										{{ item.image | image_url: width: 500 | image_tag: alt: '', class: 'img_thumbnail me-3' }}
 										<a href="{{ item.url }}">{{ item.title }}</a>
 									</div>
 								</td>

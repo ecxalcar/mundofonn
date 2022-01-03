@@ -5,7 +5,7 @@
 
     {% elsif block.type == 'sidebar_img' %}
         {% if block.settings.img %}
-            {{ block.settings.img | image_url: 'master' | image_tag: alt: '', class: 'w-100' }}
+            {{ block.settings.img | image_url: width: 500 | image_tag: alt: '', class: 'w-100' }}
         {% else %}
             {{ 'product-4' | placeholder_svg_tag: 'bg-warning mb-3' }}
         {% endif %}
