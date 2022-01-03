@@ -2,3 +2,9 @@ https://en.shopify.hk/partners/blog/shopify-blog-template
 https://community.shopify.com/c/shopify-discussions/shopify-author-pages/m-p/1365169
 https://community.shopify.com/c/shopify-design/how-to-create-blog-author-page/m-p/1380689
 https://en.shopify.hk/partners/blog/shopify-blog-template
+
+
+Link update shopify
+https://shopify.dev/apps/tools/cli/troubleshooting#upgrade-shopify-cl
+https://gist.github.com/stilyng94/0625bcd5b0a19ce862deb1debf449384
+

@@ -22,13 +22,13 @@
     <div class="row mb-5">
         <div class="col-md-7">
             <div class="featured-image-primary mb-4">
-                <a href="{{ product.featured_image | image_url: 'master' }}" data-lightbox="product" data-title="{{ product.title }}" ><img src="{{ product.featured_image | image_url: 'master' }}" class="w-100" alt="" width="" height="" loading="lazy"></a>
+                <a href="{{ product.featured_image | image_url: width: 500 }}" data-lightbox="product" data-title="{{ product.title }}" ><img src="{{ product.featured_image | image_url: width: 500 }}" class="w-100" alt="" width="" height="" loading="lazy"></a>
             </div><!-- /featured-image-primary -->
             <div class="featured-image-secondary">
                 <div class="row">
                     {% for image in product.images offset: 1 %}
                         <div class="col-12 col-sm-6 col-md-3 mb-4">
-                            <a href="{{ image | image_url: 'master' }}" data-lightbox="product" data-title="{{ product.title }}" ><img src="{{ image | image_url: 'master' }}" class="w-100" alt="" width="" height="" loading="lazy"></a>
+                            <a href="{{ image | image_url: width: 500 }}" data-lightbox="product" data-title="{{ product.title }}" ><img src="{{ image | image_url: width: 500 }}" class="w-100" alt="" width="" height="" loading="lazy"></a>
                         </div>
                     {% endfor %}
                 </div><!-- /row -->
