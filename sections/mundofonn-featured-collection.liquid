@@ -48,7 +48,7 @@
     {% if section.settings.collection_view == 'card' %}
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-5 mt-3">
-            {% for product in collections[section.settings.featured_collection].products limit: section.settings.collection_no_products %}
+            {% for product in collections[section.settings.featured_collection].products limit: section.settings.collection_products_to_show %}
                 {% if product.available %}
                     <div class="col">
                         {% render 'mundofonn-product-card' product: product %}
@@ -65,7 +65,7 @@
                 <button aria-label="Next" class="glider-next bg-warning ms-3"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" color="white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg></button>
             </div><!--/.button-slider-->
             <div class="glider-products" id="glider-products-id" data-collectionId="{{ section.id }}">
-                {% for product in collections[section.settings.featured_collection].products limit: section.settings.collection_no_products %}
+                {% for product in collections[section.settings.featured_collection].products limit: section.settings.collection_products_to_show %}
                     {% if product.available %}
                         {% render 'mundofonn-product-card' product: product %}
                     {% endif %}
@@ -81,39 +81,39 @@
 
 {% schema %}
 {
-    "name" : "Featured Collection",
+    "name" : "t:sections.mundofonn-featured-collection.name",
     "tag" : "section",
     "settings" : [
         {
             "type" : "select",
             "id" : "collection_view",
-            "label" : "Collection View",
+            "label" : "t:sections.mundofonn-featured-collection.settings.collection_view.label",
             "options" : [
                 {
                     "value" : "card",
-                    "label" : "Cards"
+                    "label" : "t:sections.mundofonn-featured-collection.settings.collection_view.option__1"
                 },
                 {
                     "value" : "slider",
-                    "label" : "Slider"
+                    "label" : "t:sections.mundofonn-featured-collection.settings.collection_view.option__2"
                 }
             ]
         },
         {
             "type" : "collection",
             "id" : "featured_collection",
-            "label" : "Featured Collection"
+            "label" : "t:sections.mundofonn-featured-collection.settings.featured_collection.label"
         },
         {
             "type" : "text",
             "id" : "collection_heading",
-            "label" : "Collection Heading",
+            "label" : "t:sections.mundofonn-featured-collection.settings.collection_heading.label",
             "default" : "My Collection Heading"
         },
         {
             "type" : "number",
-            "id" : "collection_no_products",
-            "label" : "Products to show",
+            "id" : "collection_products_to_show",
+            "label" : "t:sections.mundofonn-featured-collection.settings.collection_products_to_show.label",
             "default" : 8
         }
     ]
