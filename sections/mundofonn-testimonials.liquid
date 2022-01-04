@@ -1,203 +1,203 @@
 <style>
 
-    .testimonials-glider .profile {
-        width: 100%;
-        padding-bottom: 100%;
-        position: relative;
-    }
+	.testimonials-glider .profile {
+		width: 100%;
+		padding-bottom: 100%;
+		position: relative;
+	}
 
-    .testimonials-glider .glider-slide img,
-    .testimonials-glider .glider-slide .profile>svg {
-        width: 100%;
-        height: 100%;
-        min-height: 100%;
-        max-height: 100%;
-        object-fit: cover;
-        position: absolute;
-    }
+	.testimonials-glider .glider-slide img,
+	.testimonials-glider .glider-slide .profile>svg {
+		width: 100%;
+		height: 100%;
+		min-height: 100%;
+		max-height: 100%;
+		object-fit: cover;
+		position: absolute;
+	}
 
-    .testimonials-glider .rate {
-        /* max-width: 150px; */
-        height: 25px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+	.testimonials-glider .rate {
+		/* max-width: 150px; */
+		height: 25px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 
-    .testimonial {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+	.testimonial {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
 
-    .glider-prev-testimonials,
-    .glider-next-testimonials {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        position: relative;
-        left: auto;
-        right: auto;
-        border: 0;
-        transition: opacity .5s cubic-bezier(.17,.67,.83,.67),color .5s cubic-bezier(.17,.67,.83,.67);
-    }
+	.glider-prev-testimonials,
+	.glider-next-testimonials {
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		position: relative;
+		left: auto;
+		right: auto;
+		border: 0;
+		transition: opacity .5s cubic-bezier(.17,.67,.83,.67),color .5s cubic-bezier(.17,.67,.83,.67);
+	}
 
-    .button-slider .glider-prev-testimonials {
-        top: 0;
-        left: auto;
-        right: 0;
-    }
+	.button-slider .glider-prev-testimonials {
+		top: 0;
+		left: auto;
+		right: 0;
+	}
 
-    .glider-next-testimonials.disabled, .glider-prev-testimonials.disabled {
-        opacity: .25;
-        cursor: default;
-    }
+	.glider-next-testimonials.disabled, .glider-prev-testimonials.disabled {
+		opacity: .25;
+		cursor: default;
+	}
 </style>
 
 <div class="container py-5">
-    <div class="heading text-center">
-        <h3 class="mt-5 bg-dark rounded-pill d-inline-block py-2 px-5 text-white text-center">{{ section.settings.section_heading }}</h3>
-    </div>
-    <div class="glider-contain">
-        {% if section.settings.section_arrows %}
-            <div class="button-slider mb-3">
-                <button aria-label="Previous" class="glider-prev-testimonials bg-warning ms-3"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left fa-w-10" color="white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg></button>
-                <button aria-label="Next" class="glider-next-testimonials bg-warning ms-3"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" color="white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg></button>
-            </div><!--/.button-slider-->
-        {% endif %}
-        <div id="testimonials-slider" class="testimonials-glider" data-slides="{{ section.settings.slides_to_show }}" data-sectionId="{{ section.id }}">
-            {% for block in section.blocks %}
-                {% case block.type %}
-                    {% when 'testimonial' %}
-                        <div class="testimonial">
-                            <div class="profile bg-light">
-                                {% unless block.settings.author_img == blank %}
-                                    {{ block.settings.author_img | image_url: width: 500 | image_tag: alt: '', class: '' }}
-                                {% else %}
-                                    {{ 'product-2' | placeholder_svg_tag }}
-                                {% endunless %}
-                            </div><!-- /profile -->
-                            <div class="content-testimonial {{ section.settings.alignment_content }}">
-                                <div class="rate d-flex {{ section.settings.alignment_content }}">
-                                    {% for index in (1..block.settings.rate) %}
-                                        <svg style="color: #ffc107" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
-                                    {% endfor %}
-                                </div><!-- /rate -->
-                                <h4>{{ block.settings.author_name }}</h4>
-                                {{ block.settings.author_testimonial }}
-                            </div>
-                        </div><!-- /testimonial -->
-                {% endcase %}
-            {% else %}
-                {% for block in (1..6) %}
-                    <div class="testimonial">
-                        <div class="profile bg-light">
-                            {{ 'product-2' | placeholder_svg_tag }}
-                        </div><!-- /profile -->
-                        <div class="content-testimonial {{ section.settings.alignment_content }}">
-                            <div class="rate d-flex {{ section.settings.alignment_content }}">
-                                {% for index in (1..3) %}
-                                    <svg style="color: #ffc107" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
-                                {% endfor %}
-                            </div><!-- /rate -->
-                            <h5>Author Name</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis aperiam nemo possimus, tenetur harum amet! Iusto pariatur, error veniam distinctio tempora similique alias quaerat, a quia necessitatibus ipsum. Libero, eum?</p>
-                        </div>
-                    </div><!-- /testimonial -->
-                {% endfor %}
-            {% endfor %}
-        </div><!--/.glider-->
-        {% if section.settings.section_indicators %}
-            <div class="dots-test"></div><!-- /dots -->
-        {% endif %}
-    </div><!-- /glider-contain -->
+	<div class="heading text-center">
+		<h3 class="mt-5 bg-dark rounded-pill d-inline-block py-2 px-5 text-white text-center">{{ section.settings.section_heading }}</h3>
+	</div>
+	<div class="glider-contain">
+		{% if section.settings.section_arrows %}
+			<div class="button-slider mb-3">
+				<button aria-label="Previous" class="glider-prev-testimonials bg-warning ms-3"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left fa-w-10" color="white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg></button>
+				<button aria-label="Next" class="glider-next-testimonials bg-warning ms-3"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" color="white" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path></svg></button>
+			</div><!--/.button-slider-->
+		{% endif %}
+		<div id="testimonials-slider" class="testimonials-glider" data-slides="{{ section.settings.slides_to_show }}" data-sectionId="{{ section.id }}">
+			{% for block in section.blocks %}
+				{% case block.type %}
+					{% when 'testimonial' %}
+						<div class="testimonial">
+							<div class="profile bg-light">
+								{% unless block.settings.author_img == blank %}
+									{{ block.settings.author_img | image_url: width: 500 | image_tag: alt: '', class: '' }}
+								{% else %}
+									{{ 'product-2' | placeholder_svg_tag }}
+								{% endunless %}
+							</div><!-- /profile -->
+							<div class="content-testimonial {{ section.settings.alignment_content }}">
+								<div class="rate d-flex {{ section.settings.alignment_content }}">
+									{% for index in (1..block.settings.rate) %}
+										<svg style="color: #ffc107" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
+									{% endfor %}
+								</div><!-- /rate -->
+								<h4>{{ block.settings.author_name }}</h4>
+								{{ block.settings.author_testimonial }}
+							</div>
+						</div><!-- /testimonial -->
+				{% endcase %}
+			{% else %}
+				{% for block in (1..6) %}
+					<div class="testimonial">
+						<div class="profile bg-light">
+							{{ 'product-2' | placeholder_svg_tag }}
+						</div><!-- /profile -->
+						<div class="content-testimonial {{ section.settings.alignment_content }}">
+							<div class="rate d-flex {{ section.settings.alignment_content }}">
+								{% for index in (1..3) %}
+									<svg style="color: #ffc107" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="svg-inline--fa fa-star fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg>
+								{% endfor %}
+							</div><!-- /rate -->
+							<h5>Author Name</h5>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis aperiam nemo possimus, tenetur harum amet! Iusto pariatur, error veniam distinctio tempora similique alias quaerat, a quia necessitatibus ipsum. Libero, eum?</p>
+						</div>
+					</div><!-- /testimonial -->
+				{% endfor %}
+			{% endfor %}
+		</div><!--/.glider-->
+		{% if section.settings.section_indicators %}
+			<div class="dots-test"></div><!-- /dots -->
+		{% endif %}
+	</div><!-- /glider-contain -->
 </div><!-- /container -->
 
 {% schema %}
 {
-    "name": "Testimonials",
-    "tag": "section",
-    "settings": [
-        {
-            "type": "text",
-            "id": "section_heading",
-            "label": "Section Heading",
-            "default": "Testimonials:)"
-        },
-        {
-            "type": "checkbox",
-            "id": "section_arrows",
-            "label": "Show Arrows?"
-        },
-        {
-            "type": "checkbox",
-            "id": "section_indicators",
-            "label": "Show Indicators?"
-        },
-        {
-            "type" : "range",
-            "id": "slides_to_show",
-            "label": "Slides to show",
-            "min": 1,
-            "max": 4,
-            "step": 1,
-            "default": 4
-        },
-        {
-            "type": "radio",
-            "id": "alignment_content",
-            "label": "Alignment Content",
-            "options": [
-                {
-                    "value": "justify-content-start text-start",
-                    "label": "Left"
-                },
-                {
-                    "value": "justify-content-center text-center",
-                    "label": "Center"
-                },
-                {
-                    "value": "justify-content-end text-end",
-                    "label": "Right"
-                }
-            ],
-            "default": "justify-content-start text-start"
-        }
-    ],
-    "blocks": [
-        {
-            "name": "Testimonial",
-            "type": "testimonial",
-            "settings": [
-                {
-                    "type" : "image_picker",
-                    "id": "author_img",
-                    "label": "Image"
-                },
+	"name": "t:sections.mundofonn-testimonials.name",
+	"tag": "section",
+	"settings": [
+		{
+			"type": "text",
+			"id": "section_heading",
+			"label": "t:sections.mundofonn-testimonials.settings.section_heading.label",
+			"default": "Testimonials:)"
+		},
+		{
+			"type": "checkbox",
+			"id": "section_arrows",
+			"label": "t:sections.mundofonn-testimonials.settings.section_arrows.label"
+		},
+		{
+			"type": "checkbox",
+			"id": "section_indicators",
+			"label": "t:sections.mundofonn-testimonials.settings.section_indicators.label"
+		},
+		{
+			"type" : "range",
+			"id": "slides_to_show",
+			"label": "t:sections.mundofonn-testimonials.settings.slides_to_show.label",
+			"min": 1,
+			"max": 4,
+			"step": 1,
+			"default": 4
+		},
+		{
+			"type": "radio",
+			"id": "alignment_content",
+			"label": "t:sections.mundofonn-testimonials.settings.alignment_content.label",
+			"options": [
+				{
+					"value": "justify-content-start text-start",
+					"label": "t:sections.mundofonn-testimonials.settings.alignment_content.option__1"
+				},
+				{
+					"value": "justify-content-center text-center",
+					"label": "t:sections.mundofonn-testimonials.settings.alignment_content.option__2"
+				},
+				{
+					"value": "justify-content-end text-end",
+					"label": "t:sections.mundofonn-testimonials.settings.alignment_content.option__3"
+				}
+			],
+			"default": "justify-content-start text-start"
+		}
+	],
+	"blocks": [
+		{
+			"name": "t:sections.mundofonn-testimonials.blocks.name",
+			"type": "testimonial",
+			"settings": [
+				{
+					"type" : "image_picker",
+					"id": "author_img",
+					"label": "t:sections.mundofonn-testimonials.blocks.settings.author_img.label"
+				},
 
-                {
-                    "type" : "range",
-                    "id": "rate",
-                    "label": "Rate",
-                    "min": 1,
-                    "max": 5,
-                    "step": 1,
-                    "default": 1
-                },
+				{
+					"type" : "range",
+					"id": "rate",
+					"label": "t:sections.mundofonn-testimonials.blocks.settings.rate.label",
+					"min": 1,
+					"max": 5,
+					"step": 1,
+					"default": 1
+				},
 
-                {
-                    "type" : "text",
-                    "id": "author_name",
-                    "label": "Name",
-                    "default": "Jhon Doe"
-                },
+				{
+					"type" : "text",
+					"id": "author_name",
+					"label": "t:sections.mundofonn-testimonials.blocks.settings.author_name.label",
+					"default": "Jhon Doe"
+				},
 
-                {
-                    "type" : "richtext",
-                    "id": "author_testimonial",
-                    "label": "Testimonial",
-                    "default": "<p>This is my testimonial default...</p>"
-                }
-            ]
-        }
-    ]
+				{
+					"type" : "richtext",
+					"id": "author_testimonial",
+					"label": "t:sections.mundofonn-testimonials.blocks.settings.author_testimonial.label",
+					"default": "<p>This is my testimonial default...</p>"
+				}
+			]
+		}
+	]
 }
 {% endschema %}

@@ -8,43 +8,43 @@
 		{% endcase %}
 	{% else %}
 		<div class="alert alert-warning text-center">
-			20% de descuento en todos los productos hasta el 31 de diciembre
+			Nuevos productos del año 2022
 		</div><!-- /alert -->
 	{% endfor %}
 </div><!-- /container -->
 
 {% schema %}
 {
-	"name": "Announcement Bar",
+	"name": "t:sections.mundofonn-announcement-bar.name",
 	"tag": "section",
 	"class": "section-announcement-bar",
 	"blocks": [
 		{
-			"name": "Announcement",
+			"name": "t:sections.mundofonn-announcement-bar.blocks.name",
 			"type": "announcement",
 			"settings": [
 				{
 					"type": "text",
 					"id": "announcement_text",
-					"label": "Text",
+					"label": "t:sections.mundofonn-announcement-bar.blocks.settings.announcement_text.label",
 					"default": "Hola mundo!"
 				},
 				{
 					"type": "select",
 					"id": "text_alignment",
-					"label": "Text Alignment",
+					"label": "t:sections.mundofonn-announcement-bar.blocks.settings.text_alignment.label",
 					"options": [
 						{
 							"value": "text-start",
-							"label": "Left"
+							"label": "t:sections.mundofonn-announcement-bar.blocks.settings.text_alignment.option__1"
 						},
 						{
 							"value": "text-center",
-							"label": "Center"
+							"label": "t:sections.mundofonn-announcement-bar.blocks.settings.text_alignment.option__2"
 						},
 						{
 							"value": "text-end",
-							"label": "Right"
+							"label": "t:sections.mundofonn-announcement-bar.blocks.settings.text_alignment.option__3"
 						}
 					],
 					"default": "text-start"
@@ -52,27 +52,27 @@
 				{
 					"type": "select",
 					"id": "color_announcement",
-					"label": "Color Announcement",
+					"label": "t:sections.mundofonn-announcement-bar.blocks.settings.color_announcement.label",
 					"options": [
 						{
 							"value": "alert-primary",
-							"label": "Primary"
+							"label": "t:sections.mundofonn-announcement-bar.blocks.settings.color_announcement.option__1"
 						},
 						{
 							"value": "alert-secondary",
-							"label": "Secondary"
+							"label": "t:sections.mundofonn-announcement-bar.blocks.settings.color_announcement.option__2"
 						},
 						{
 							"value": "alert-danger",
-							"label": "Danger"
+							"label": "t:sections.mundofonn-announcement-bar.blocks.settings.color_announcement.option__3"
 						},
 						{
 							"value": "alert-success",
-							"label": "Success"
+							"label": "t:sections.mundofonn-announcement-bar.blocks.settings.color_announcement.option__4"
 						},
 						{
 							"value": "alert-warning",
-							"label": "Warning"
+							"label": "t:sections.mundofonn-announcement-bar.blocks.settings.color_announcement.option__5"
 						}
 					],
 					"default": "alert-primary"
@@ -80,7 +80,7 @@
 				{
 					"type": "select",
 					"id": "size_announcement",
-					"label": "Size",
+					"label": "t:sections.mundofonn-announcement-bar.blocks.settings.size_announcement.label",
 					"options": [
 						{
 							"value": "h1",
