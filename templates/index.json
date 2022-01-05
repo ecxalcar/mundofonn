@@ -16,16 +16,12 @@
         },
         "slide3": {
           "type": "slide"
-        },
-        "slide4": {
-          "type": "slide"
         }
       },
       "block_order": [
         "slide",
         "slide2",
-        "slide3",
-        "slide4"
+        "slide3"
       ]
     },
     "mundofonn_featured_collection": {
@@ -50,12 +46,16 @@
         },
         "faq3": {
           "type": "question"
+        },
+        "faq4": {
+          "type": "question"
         }
       },
       "block_order": [
         "faq",
         "faq2",
-        "faq3"
+        "faq3",
+        "faq4"
       ]
     },
     "mundofonn_testimonials": {
