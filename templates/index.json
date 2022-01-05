@@ -6,7 +6,27 @@
         "section_heading": "Slider Heading ;)",
         "section_arrows": true,
         "section_indicators": true
-      }
+      },
+      "blocks": {
+        "slide": {
+          "type": "slide"
+        },
+        "slide2": {
+          "type": "slide"
+        },
+        "slide3": {
+          "type": "slide"
+        },
+        "slide4": {
+          "type": "slide"
+        }
+      },
+      "block_order": [
+        "slide",
+        "slide2",
+        "slide3",
+        "slide4"
+      ]
     },
     "mundofonn_featured_collection": {
       "type": "mundofonn-featured-collection",
@@ -20,7 +40,23 @@
       "type": "mundofonn-faqs",
       "settings": {
         "section_heading": "FAQs Heading :)"
-      }
+      },
+      "blocks": {
+        "faq": {
+          "type": "question"
+        },
+        "faq2": {
+          "type": "question"
+        },
+        "faq3": {
+          "type": "question"
+        }
+      },
+      "block_order": [
+        "faq",
+        "faq2",
+        "faq3"
+      ]
     },
     "mundofonn_testimonials": {
       "type": "mundofonn-testimonials",

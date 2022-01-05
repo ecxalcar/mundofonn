@@ -3,7 +3,11 @@
 		<div class="row g-0">
 			{% if section.settings.product %}
 				<div class="col-md-6">
-					{{ 's21FE.jpg' | asset_url | img_tag: alt: '', class: 'w-100 object-fit-cover' }}
+					<img src="{{ 's21FE.jpg' | asset_img_url: 'original' }}" alt="" width="" height="" loading="lazy" class="w-100 object-fit-cover">
+                    {%- comment -%}
+                        {{ 's21FE.jpg' | asset_url | img_tag: alt: '', class: 'w-100 object-fit-cover' }}
+                    {%- endcomment -%}
+
 				</div><!-- /col -->
 				<div class="col-md-6 p-4 text-center d-flex flex-column align-items-center justify-content-center position-relative">
 					{% if section.settings.liquid_product %}
@@ -27,7 +31,11 @@
 				</div><!-- /col -->
 			{% else %}
 				<div class="col-md-6">
-					{{ 's21FE.jpg' | asset_url | img_tag: alt: '', class: 'w-100 object-fit-cover' }}
+					<img src="{{ 's21FE.jpg' | asset_img_url: 'original' }}" alt="" width="" height="" loading="lazy" class="w-100 object-fit-cover">
+                    {%- comment -%}
+                        {{ 's21FE.jpg' | asset_url | img_tag: alt: '', class: 'w-100 object-fit-cover' }}
+                    {%- endcomment -%}
+
 				</div><!-- /col -->
 				<div class="col-md-6 p-4 text-center d-flex flex-column align-items-center justify-content-center position-relative">
 					<div class="badge bg-primary position-absolute">Disponible</div>

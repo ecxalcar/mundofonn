@@ -6,10 +6,6 @@
 					{{ block.settings.announcement_text }}
 				</div><!-- /alert -->
 		{% endcase %}
-	{% else %}
-		<div class="alert alert-warning text-center">
-			Nuevos productos del año 2022
-		</div><!-- /alert -->
 	{% endfor %}
 </div><!-- /container -->
 
@@ -111,6 +107,18 @@
 				}
 			]
 		}
-	]
+	],
+	"default": {
+		"blocks": [
+			{
+				"type": "announcement"
+			},
+			{
+				"type": "announcement"
+			}
+		]
+	}
 }
 {% endschema %}
+
+
