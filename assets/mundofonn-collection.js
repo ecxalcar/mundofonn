@@ -7,7 +7,7 @@ function collectionProductSlider() {
         dots: '.dots',
         duration: 0.90,
         itemWidth: 150,
-    
+
         arrows: {
             prev: '.glider-prev',
             next: '.glider-next'
@@ -28,7 +28,7 @@ function collectionProductSlider() {
                 }
             },
             {
-                breakpoint: 1024,
+                breakpoint: 1200,
                 settings: {
                 slidesToShow: 4,
                 slidesToScroll: 4

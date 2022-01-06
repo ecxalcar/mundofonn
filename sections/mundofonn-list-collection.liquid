@@ -6,7 +6,7 @@
 				<a href="{{ collection.url }}">
 					<div class="card p-2 bg-light">
 						{% if collection.image %}
-							{{ collection.image | image_url: width: 500 | image_tag: alt: '', class: '' }}
+							{{ collection.image | image_url: width: 500 | image_tag: alt: '', class: 'w-100 object-fit-contain' }}
 						{% else %}
 							{{ collection.products.first.image | image_url: width: 500 | image_tag: alt: '', class: 'w-100' }}
 						{% endif %}

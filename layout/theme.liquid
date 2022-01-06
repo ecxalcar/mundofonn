@@ -47,6 +47,7 @@
     {{ 'glider.min.css' | asset_url | stylesheet_tag }}
     {{ 'lightbox.css' | asset_url | stylesheet_tag }}
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+    {{ 'site-styles.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
@@ -117,6 +118,7 @@
     <script src="{{ 'bootstrap.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'lightbox-plus-jquery.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'masonry.pkgd.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'site-scripts.js' | asset_url }}" defer="defer"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" defer="defer"></script> -->
   </body>
 </html>

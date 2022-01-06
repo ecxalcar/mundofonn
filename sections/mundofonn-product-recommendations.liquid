@@ -60,18 +60,7 @@
             <div class="glider-recommendations">
                 {% if recommendations.performed and recommendations.products_count > 0 %}
                     {% for product in recommendations.products %}
-                        <div class="card mx-auto h-100 swiper-slide">
-                            {% if product.featured_media == blank %}
-                                {{ 'product-5' | placeholder_svg_tag }}
-                            {% else %}
-                                {{ product.featured_media | image_url: width: 500 | image_tag: alt: '', class: 'card-img-top' }}
-                            {% endif %}
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.price | money_with_currency }}</h5>
-                                <a href="{{ product.url }}"><p class="card-text h4 mb-3">{{ product.title }}</p></a>
-                                <a href="#" class="btn btn-warning">Ver detalles</a>
-                            </div><!-- /card-body -->
-                        </div><!-- /card -->
+                    {% render 'mundofonn-product-card' product: product %}
                     {% endfor %}
                 {% endif %}
 

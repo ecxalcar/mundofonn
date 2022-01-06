@@ -1,15 +1,8 @@
-<style>
-	.card-img-top {
-		max-width: 100%;
-		max-height: 200px;
-		object-fit: contain;
-	}
-</style>
-<div class="card h-100 swiper-slide">
+<div class="card swiper-slide">
 	{{ product.featured_media | image_url: width: 500 | image_tag: alt: '', class: 'card-img-top' }}
 	<div class="card-body">
 		<h5 class="card-title">{{ product.price | money_with_currency }}</h5>
 		<a href="{{ product.url }}"><p class="card-text h4 mb-3">{{ product.title }}</p></a>
-		<a href="#" class="btn btn-warning">Ver detalles</a>
+		<a href="#0" class="product-modal-btn btn btn-warning" data-product-handle="{{ product.handle }}">See details</a>
 	</div><!-- /card-body -->
 </div><!-- /card -->
