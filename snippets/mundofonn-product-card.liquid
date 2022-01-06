@@ -3,6 +3,7 @@
 	<div class="card-body">
 		<h5 class="card-title">{{ product.price | money_with_currency }}</h5>
 		<a href="{{ product.url }}"><p class="card-text h4 mb-3">{{ product.title }}</p></a>
-		<a href="#0" class="product-modal-btn btn btn-warning" data-product-handle="{{ product.handle }}">See details</a>
+		<a href="#0" class="product-modal-btn btn btn-warning" data-product-handle="{{ product.handle }}" data-product-price="{{ product.price | money_with_currency }}">See details</a>
 	</div><!-- /card-body -->
 </div><!-- /card -->
+
