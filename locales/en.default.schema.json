@@ -363,7 +363,6 @@
 				}
 			}
 		},
-
 		"mundofonn-home-article": {
 			"name": "Article 📰",
 			"settings": {
@@ -375,7 +374,6 @@
 				}
 			}
 		},
-
 		"mundofonn-home-banner": {
 			"name": "Banner 📰",
 			"settings": {
@@ -394,6 +392,62 @@
 				},
 				"url_banner": {
 					"label": "Button url"
+				}
+			}
+		},
+		"mundofonn-location": {
+			"name": "Location 📰",
+			"settings": {
+				"heading_location": {
+					"label": "Heading Location"
+				},
+				"our_location": {
+					"label": "Paste iframe map"
+				},
+				"page": {
+					"label": "Choose a Page"
+				}
+			}
+		},
+		"mundofonn-home-product": {
+			"name": "Product 📰",
+			"settings": {
+				"product": {
+					"label": "Choose a Product"
+				},
+				"liquid_product": {
+					"label": "Liquid Code"
+				},
+				"product_description_video": {
+					"label": "Product description video"
+				}
+			}
+		},
+		"mundofonn-social-media": {
+			"name": "Social Media 📰",
+			"settings": {
+				"icons_alignment": {
+					"label": "Icons Alignment"
+				},
+				"option__1": "Left",
+				"option__2": "Center",
+				"option__3": "Right"
+			},
+			"blocks": {
+				"name": "Social Icon",
+				"settings": {
+					"icon_svg": {
+						"label": "SVG code"
+					},
+					"icon_url": {
+						"label": "URL"
+					},
+					"icon_title": {
+						"label": "Title"
+					},
+					"icon_target": {
+						"label": "Open link in a new tab?"
+					}
 				}
 			}
 		},

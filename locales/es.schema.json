@@ -395,6 +395,59 @@
 				}
 			}
 		},
+		"mundofonn-location": {
+			"name": "Ubicación 📰",
+			"settings": {
+				"heading_location": {
+					"label": "Encabezado de Ubicación"
+				},
+				"our_location": {
+					"label": "Pega el iframe del mapa"
+				},
+				"page": {
+					"label": "Selecciona una Página"
+				}
+			}
+		},
+		"mundofonn-home-product": {
+			"name": "Producto 📰",
+			"settings": {
+				"product": {
+					"label": "Selecciona un Producto"
+				},
+				"liquid_product": {
+					"label": "Codigo Liquid"
+				},
+				"product_description_video": {
+					"label": "URL video de producto"
+				}
+			}
+		},
+		"mundofonn-social-media": {
+			"name": "Redes Sociales 📰",
+			"settings": {
+				"option__1": "Izquierda",
+				"option__2": "Centrado",
+				"option__3": "Derecha"
+			},
+			"blocks": {
+				"name": "Icono de red social",
+				"settings": {
+					"icon_svg": {
+						"label": "codigo SVG"
+					},
+					"icon_url": {
+						"label": "URL"
+					},
+					"icon_title": {
+						"label": "Titulo"
+					},
+					"icon_target": {
+						"label": "Abrir enlace en nueva pestaña?"
+					}
+				}
+			}
+		},
 
 		"announcement-bar": {
 			"name": "Barra de anuncios",
