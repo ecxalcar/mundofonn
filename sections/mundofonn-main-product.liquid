@@ -40,10 +40,9 @@
             {% if product.compare_at_price != blank %}
                 <p>Normal Price: <del class="text-muted">{{ product.compare_at_price | money_with_currency }}</del> </p>
             {% endif %}
-            <p>{% if product.compare_at_price != blank %}Offer: {% else %} Price: {% endif %} <strong>{{ product.price | money_with_currency }}</strong> </p>
+            <p>{% if product.compare_at_price != blank %} Offer: {% else %} Price: {% endif %} <strong>{{ product.price | money_with_currency }}</strong> </p>
             {% form 'product', product %}
                 <div class="quantity-product">
-                    
                     {% if product.variants.size > 1 %}
                         <p>Variants:</p>
                         <select name="id" id="" class="form-control mb-1">

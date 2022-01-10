@@ -31,6 +31,10 @@
 		margin-top: 150px;
 	}
 
+	.alert-success {
+		display: none;
+		transition: opacity 1s;
+	}
 </style>
 
 <div class="container py-5 footer-margin">
@@ -89,13 +93,13 @@
 			</div><!-- /col -->
 			<div class="col-6 col-md-4 col-lg-3">
 				<div class="img-wrapper bg-light">
-						{{ 'product-1' | placeholder_svg_tag }}
+					{{ 'product-1' | placeholder_svg_tag }}
 				</div><!-- /img-wrapper -->
 			</div><!-- /col -->
 		{% endfor %}
 
-	</div>
-</div>
+	</div><!-- /.row -->
+</div><!-- /.container -->
 
 <!-- Modal -->
 <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
@@ -104,26 +108,32 @@
 			<div class="modal-header py-5">
 				<h3 class="mx-auto">Title Product</h3>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
+			</div><!-- /modal-header -->
 			<div class="modal-body">
+				<div class="alert alert-success"></div>
 				<div class="row g-4">
 					<div class="col-md-5">
 						<div class="bg-light h-100 product-info d-flex">
-							<img src="" alt="" class="w-100 object-fit-contain align-self-center">
-						</div>
-					</div>
+							<img src="" alt="" class="w-100 object-fit-contain align-self-center" loading="lazy" width="" height="">
+						</div><!-- /.bg -->
+					</div><!-- /.col -->
 					<div class="col-md-7">
 						<div class="product-info">Price <h5>5000.00 GTQ</h5></div>
 						<div class="product-info"> <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi voluptas numquam non explicabo dolore dicta, odit reiciendis harum officia! Perferendis distinctio maiores perspiciatis assumenda iste, recusandae facilis nulla quod rem.</p></div>
-					</div>
-				</div>
-			</div>
+						<form action="" class="text-center" id="productFormModal">
+							<select name="productOptions" id="productOption" class="form-control mb-2 mt-2"></select>
+							<input type="number" min="1" value="1" name="productQuantity" id="productQuantity" class="form-control mb-3">
+							<button type="submit" id="productFormSubmit" class="btn btn-warning px-5 w-100">Add to Cart</button>
+						</form><!-- /form -->
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.modal-body -->
 			<div class="modal-footer bg-secondary">
 				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
-</div>
+			</div><!-- /.modal-footer -->
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 {% schema %}
 {
