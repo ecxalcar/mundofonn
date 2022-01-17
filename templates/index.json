@@ -46,9 +46,6 @@
         },
         "faq3": {
           "type": "question"
-        },
-        "faq4": {
-          "type": "question"
         }
       },
       "block_order": [

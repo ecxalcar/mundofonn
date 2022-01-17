@@ -14,7 +14,7 @@
 						{% if link.links.size > 0 %}
 							<ul class="dropdown-menu">
 								{% for child_link in link.links %}
-									<li> 
+									<li>
 										<a class="dropdown-item {% if child_link.links.size > 0 %} dropdown-toggle {% endif %}" href="{{ child_link.url }}" {% if child_link.links.size > 0 %} data-bs-toggle="dropdown"{% endif %} > {{ child_link.title }} </a>
 										{% if child_link.links.size > 0 %}
 											<ul class="submenu dropdown-menu">
@@ -28,11 +28,12 @@
 							</ul><!-- /dropdown-menu -->
 						{% endif %}
 					</li>
+
 				{% endfor %}
 
 			</ul><!-- /navbar-nav -->
 			<form class="d-flex me-3" action="{{ routes.search_url }}">
-				<input class="form-control" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Type something..." aria-label="Search">
+				<input class="form-control search-input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Type something..." aria-label="Search">
 				<button class="btn btn-dark" type="submit">Search</button>
 			</form>
 
@@ -58,6 +59,15 @@
 		</div><!-- /collapse -->
 	</div><!-- /container -->
 </nav><!-- /navbar -->
+
+<div class="offcanvas offcanvas-start offcanvasWrapper" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+	<div class="offcanvas-header">
+		<h5 class="offcanvas-title" id="offcanvasScrollingLabel">Search Results</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body offcanvasSearchResultsWrapper">
+	</div>
+</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {

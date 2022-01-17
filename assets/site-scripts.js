@@ -68,8 +68,8 @@ productForm.addEventListener('submit', function(event) {
     .then(response => {
         if (response.status == 200) {   // *** This can be just `if (response.ok) {`
             console.log(response);      // *** This is premature
-            let alertSuccess = document.querySelector('.alert');
-            alertSuccess.addClassList('alert-success');
+            let alertSuccess = document.querySelector('#productModal .alert');
+            alertSuccess.classList.add('alert-success');
             alertSuccess.innerHTML = 'Product Added To Cart';
             alertSuccess.style.display = 'block';
             setTimeout(function(){
@@ -81,14 +81,56 @@ productForm.addEventListener('submit', function(event) {
 
     })
     .catch((error) => {
-        let alertSuccess = document.querySelector('.alert');
-            alertSuccess.addClassList('alert-danger');
-            alertSuccess.innerHTML = 'There was an error. You can try again';
-            alertSuccess.style.display = 'block';
+        let alertDanger = document.querySelector('#productModal .alert');
+            alertDanger.classList.add('alert-danger');
+            alertDanger.innerHTML = 'There was an error. You can try again';
+            alertDanger.style.display = 'block';
             setTimeout(function(){
-                alertSuccess.style.display = "none"; 
+                alertDanger.style.display = "none"; 
             }, 5000);
         console.error('Error:', error);
         
     });
 });
+
+// Predictive Search
+let searchInput = document.querySelector('.search-input');
+let timer;
+
+if (searchInput != null) {
+	searchInput.addEventListener('input', (event) => {
+		clearTimeout(timer);
+		if (searchInput.value) {
+			timer = setTimeout(predictiveSearch, 1000);
+		}
+	});
+}
+
+function predictiveSearch() {
+	let url = `/search/suggest.json?q=${searchInput.value}&resources[type]=product`;
+	fetch( url )
+	.then((response) => {
+		return response.json();
+	})
+	.then((products_data) => {
+		console.log(products_data);
+		let offcanvasWrapper = document.querySelector('.offcanvasWrapper');
+		let bsOffcanvas = new bootstrap.Offcanvas(offcanvasWrapper);
+		let products = products_data.resources.results.products;
+		let productsHTML = '';
+		products.forEach( (product, index) => {
+			productsHTML += `
+				<div class="card mb-4">
+					<a href="${product.url}"><img class="w-100" src="${product.image}"/></a>
+					<div class="card-body">
+						<h5>${product.title}</h5>
+						<p>${product.price}</p>
+                        <a href="${product.url}" class="btn btn-warning">See Product</a>
+					</div>
+				</div>
+			`;
+		});
+		document.querySelector('.offcanvasSearchResultsWrapper').innerHTML = productsHTML;
+		bsOffcanvas.show();
+	});
+} 
